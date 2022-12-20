@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>for_sum</title>
+</head>
+<body>
+  <script>
+    /*1부터 10까지의 합을 계산하는 프로그램 작성*/
+
+    //합계를 저장할 변수 선언하고 0으로 초기화
+    let sum = 0;  //let 변수 선언(변수가 생길 때 마다), 초기값 안 주면 undefiend됨
+    //10까지 반복
+    for(let i=0 ; i < 11 ; i++){
+      //합계변수에 수를 더함
+      sum += i;
+    }
+    //합계 출력
+    alert(sum);
+
+    //100까지의 합
+    sum = 0;    //변수를 초기화 했으므로 다시 써도 됨 let은 똑같은 변수를 다시 선언하지 않음.
+      for(let i=0 ; i < 101 ; i++){
+        sum += i;
+      }
+    alert(sum)
+
+    sum = 0;
+    sum_calc(10);
+    alert(sum);
+
+    sum = 0;
+    sum_calc(100);
+    alert(sum);
+
+
+    function sum_calc(num){
+      for(let i=0 ; i < num + 1 ; i++){
+          sum += i;
+        }
+        }
+
+  </script>
+</body>
+</html>

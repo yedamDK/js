@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1400p582window3</title>
+</head>
+<body>
+  <div>
+    <button type="button" id="btnOpen">새창열기</button>
+    <button type="button" id="btnClose">창닫기</button>
+    <button type="button" id="btnMove">이동</button>
+    <button type="button" id="btnRef">참조</button>
+  </div>
+  <script>
+    let popup ;
+    btnOpen.onclick = function(){
+      // window.open('1140p573random2.html','random','width=400, height=200,left=300,top=200')     //random빼면 계속 창이 뜸
+      popup = window.open('1140p573random2.html','random','width=400, height=200,left=300,top=200')     
+      if(popup == null)
+        alert('팝업 차단 해제')
+    }
+    btnClose.onclick = function(){
+      popup.close()     
+    }
+    btnMove.onclick = function(){
+      popup.moveBy(200,0);    //상대이동
+    }
+    btnOpen.click();
+
+  </script>
+</body>
+</html>

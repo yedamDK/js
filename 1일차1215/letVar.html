@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>let.Var.html</title>
+</head>
+<body>
+  <script>
+    /*
+    var   중복선언 가능, 함수 범위
+    let(권장) : 중복선언 안 됨    한 번 쓴 result은 let을 또 쓰면 오류 발생 그래서 다음부터는 let을 쓰지 않음
+          블록 범위
+    */
+
+    //let 올해 윤년
+    let result = 2022 % 4;
+    //let 요일
+    result = 15 % 7;
+    //요일
+    let week = 15 % 7;  // 0~6사이의 값
+    let weekName = ['월','화','수','목','금','토','일'];
+    console.log(weekName[week])
+
+    //해당월의 마지막날이 몇일인지?
+    let month = [31,28,31,30,31,30,31,31,30,31,30,31];
+    //월 입력 (1~12)    0~11
+    let m = prompt();
+    //마지막날 출력
+    console.log(m,'월은', month[m-1], '일입니다.');    //console.log(month[prompt()-1]) 과 같은 내용 ctrl shift j에서 보기
+    alert(m+'월은'+month[m-1]+'일입니다.');             //새 창으로 띄우기
+    //var 올해 윤년
+    var year = 2022 % 4;
+    //var요일
+    var year = 15 & 7;
+  </script>
+</body>
+</html>

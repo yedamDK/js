@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>var_let</title>
+</head>
+<body>
+  <script>
+    /*
+    var : 중복선언 가능
+      Global 전역변수 : 함수 밖에서 선언, 모든 함수에서 사용 가능
+      Local 지역변수 : 함수 안에서 선언, 해당 함수 안에서만 사용 가능
+
+    let :   중복선언 불가
+            전역 지역변수는 같은 의미
+            블록변수 {} 지역보다 좁은 의미
+    */
+
+    // let sum =0;
+    // addNumber()
+    // addNumber()
+    // subNumber()
+    // alert(sum)
+
+    // function addNumber(){
+    //   sum += 10;
+    // }
+
+    // function subNumber(){
+    //   sum -= 10;
+    // }
+
+
+    let num =0;
+    addNumber();
+    addNumber();
+    subNumber();
+    alert(num);
+
+    function addNumber(){
+      let num = 0;
+      num += 10;
+    }
+
+    function subNumber(){
+      num -= 10;
+    }
+
+
+/*     let sum =0;                             //script 변수
+    sum = addNumber();
+    addNumber();
+    subNumber();
+    alert(sum);
+
+    function addNumber(){
+      let sum = 0;                          //지역변수(=local) 끝나면 사라짐
+      for(let i=0 ; i<1 ; i++){             //i는 블록함수 끝나면 사라짐
+      sum += 10;
+      }   
+      console.log(sum);
+      return sum;
+    }
+
+    function subNumber(){
+      sum -= 10;
+    }
+ */</script>
+</body>
+</html>

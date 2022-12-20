@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>arry_sum</title>
+</head>
+<body>
+  <script>
+    // /* 배열과 반복문 */
+    // let score = [100,90,100,80,100];  //0~3 0부터 시작 잊지 말기 1부터 시작 x
+    // let sum = 0;
+
+    // for(let i=0 ; i < score.length ; i++){
+    // sum += score[i];
+    // }
+    // alert(sum)
+
+
+
+     let score = [100,90,100,80,100];  
+    let total = array_sum(score);
+    alert(total)
+    function array_sum(score){                  //매개변수도 지역변수 따라서 밖에 글로벌 함수 score랑 다름 밑에처럼 다른 이름 줘도 됨(다르게 주는게 좋음)
+      let sum = 0;                              //array_sum(score) 와 score.length 의 score는 똑같이 수정해줘야 나중에 길어졌을 때 오류가 발생해도 찾기 쉬움. 
+      for(let i=0 ; i < score.length ; i++){    //현재는 array_sum(x) score.length라 해도 작동 됨
+      sum += score[i];
+      }
+      return sum;
+    }  
+
+
+/*     let ttl = array_sum([100,90,100,80,100]);
+    alert(ttl)
+    alert(array_sum([100,90,100,80,100]))
+    
+    
+    function array_sum(x){
+      let sum = 0;
+      for(let i=0 ; i < x.length ; i++){
+      sum += x[i];
+      }
+      return sum;
+    }  
+ */  </script>
+  
+</body>
+</html>

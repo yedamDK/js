@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1003.html</title>
+</head>
+<body>
+  <input id="txt">
+  <button id="addBtn" >추가</button>
+  <button id="delBtn">삭제</button>
+  <div id="result"></div>
+  <script>
+    let fruit = new Array();        //[]가 new Array()의 축약형
+    addBtn.onclick = function(){
+      fruit.push(txt.value);
+      result.innerText = fruit.toString();
+      txt.value = '';
+    }
+
+    // delBtn.onclick = function(){
+    //   let el = fruit.pop(); //
+    //   alert(el)
+    //   result.innerText = fruit.toString();
+    // }
+
+    // delBtn.onclick = function(){
+    //   fruit.shift();
+    //   result.innerText = fruit.toString();
+    // }
+
+    delBtn.onclick = function(){
+      let idx = fruit.indexOf(txt.value);
+      if(idx>=0){       //if 설정하지 않으면 없는값을 지우라고 할 때 맨 뒤에부터 지워짐
+      fruit.splice(idx,1)     
+      result.innerText = fruit.toString();
+      }
+    }
+
+  </script>
+</body>
+</html>

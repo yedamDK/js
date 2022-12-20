@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1109p570예제2</title>
+</head>
+<body>
+  <div id="result"></div>
+  <script>
+    let firstday = new Date("2022-10-01");     //2022-10-01로 하면 2022-10-01T00:00로 2022-10-1로 하면 2022-10-01T현재시간
+    let now = new Date();
+    now.setFullYear(2000)
+    console.log(now)
+    now.setMonth(now.getMonth()+10)
+    console.log(now)
+
+    // let passTime = now.getTime() - firstday.getTime();
+    
+    // result.innerHTML = passTime/1000/60/60/24 + '<br>';   // 일수     <br>태그(색 배경 등) 넣을 때는 HTML로 Text안됨
+    // result.innerText += passTime/1000/60/60               // 시간     계속 값을 넣기 위해서 +=으로 함(안쓰면 위에 값 안 나오고 덮어씀)
+
+
+</script>
+</body>
+</html>

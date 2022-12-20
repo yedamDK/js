@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2884알람</title>
+</head>
+<body>
+  <script>
+    /* https://www.acmicpc.net/problem/2884
+    */
+        let num = prompt().split(" ")
+    let H = parseInt(num[0]);
+    let M = parseInt(num[1]);
+    if(M >= 45){
+        M = M - 45;
+    }
+    else {
+        H = H - 1;
+        M = M+60-45;
+    }
+    if(H < 0){
+      H = 23;
+    }
+    console.log(H , M)
+  </script>
+</body>
+</html>

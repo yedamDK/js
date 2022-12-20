@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>guessNumber</title>
+</head>
+<body>
+  <script>
+    /*
+      작성일자 : 2022
+      작성자 : 홍길동
+      내용 : 숫자 맞추기 게임
+    */
+    // 임의의 수 생성
+    let num = Math.floor(Math.random() * 10) + 1;
+    let turn = 0;
+    //맞을때까지 반복
+    while (true) {       
+      //사용자가 숫자 입력
+      let guess = prompt("1~10사이의 수를 입력(0은 종료)", "5")
+      turn ++; //turn = turn + 1; 과 같다
+      //입력 값이 0이면 게임중지
+      if(guess == 0){
+        alert("게임중지")
+        break;
+      }
+      //시도횟수 5회 넘으면 게임오버
+      else if(turn > 5){
+        alert("게임오버")
+        break;
+      }
+      else if(num == guess){
+        alert("정답")
+        break;
+      }
+      else if (num < guess) {
+       alert("작다");
+      }
+      else  {
+        alert("크다");
+      }
+    }
+</script>
+</body>
+</html>

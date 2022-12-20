@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1924요일</title>
+</head>
+<body>
+  <script>
+    /* https://www.acmicpc.net/problem/1924
+    */
+    let num = prompt("x(1 ≤ x ≤ 12)와 y(1 ≤ y ≤ 31)").split(" ");
+    let x = parseInt(num[0]);
+    let y = parseInt(num[1]);
+    let date = [31,28,31,30,31,30,31,31,30,31,30,31];
+    let sum = 0;
+    
+    for(let i=0 ; i< x -1 ; i++){
+      sum += date[i];
+    }
+
+    // let date = [0,31,28,31,30,31,30,31,31,30,31,30];
+    // let sum = 0;
+    
+    // for(let i=0 ; i< x ; i++){
+    //   sum += date[i];
+    // }
+
+    if((sum + y) % 7 == 0){
+      console.log('SUN');
+    }
+    else if((sum + y) % 7 == 1){
+      console.log('MON');
+    }
+    else if((sum + y) % 7 == 2){
+      console.log('TUE');
+    }
+    else if((sum + y) % 7 == 3){
+      console.log('WED');
+    }
+    else if((sum + y) % 7 == 4){
+      console.log('THU');
+    }
+    else if((sum + y) % 7 == 5){
+      console.log('FRI');
+    }
+    else {
+      console.log('SAT');
+    }
+  </script>
+  
+</body>
+</html>
