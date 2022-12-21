@@ -167,3 +167,158 @@ document.querySelector("div").classList.add("hide")
 document.querySelector("div").classList.remove("hide")
 document.querySelector("div").classList.toggle("hide")
 document.querySelector("div").classList.toggle("hide")
+
+
+  <title>1123classlist.html</title>
+  <style>
+  .panel {
+    color : blue;
+    font-size: 2em;
+  }
+  .hide {
+    display: none;
+  }
+  </style>
+</head>
+<body>
+  <h3>class 속성을 제어</h3>
+  <button id="btn">안보이게</button>
+  <div class="panel">내용</div>
+  <script>
+    btn.onclick = function(){
+      //토글
+      //document.querySelector("div").classList.toggle("hide")
+      let tog = document.querySelectorAll("div")[0];
+      tog.classList.toggle("hide")
+    }
+  </script>
+
+1230tabs_active,show제거
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  /* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_tabs */
+body {font-family: Arial;}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+.show{
+  display: block;
+}
+</style>
+</head>
+<body>
+
+<h2>Tabs</h2>
+<p>Click on the buttons inside the tabbed menu:</p>
+
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'London')">London</button>
+  <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
+  <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
+</div>
+
+<div id="London" class="tabcontent">
+  <h3>London</h3>
+  <p>London is the capital city of England.</p>
+</div>
+
+<div id="Paris" class="tabcontent">
+  <h3>Paris</h3>
+  <p>Paris is the capital of France.</p> 
+</div>
+
+<div id="Tokyo" class="tabcontent">
+  <h3>Tokyo</h3>
+  <p>Tokyo is the capital of Japan.</p>
+</div>
+
+<script>
+function openCity(evt, cityName) {
+/*  var i, tabcontent, tablinks;
+   tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";      //remove show
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");   //클래스 값을 제거
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";    //add */
+  
+  // let tablinks = document.getElementsByClassName("tablinks")     //여러개 보여지고 있을때에도 가능
+  // for(let i=0 ; i<tablinks.length ; i++){
+  //   tablinks[i].classList.remove('active');
+  // }
+  document.querySelector(".active")?.classList.remove("active");     //위에 active show를 지워서 있을때만 지우기 위해 ? 추가
+
+  // let tabcontent = document.getElementsByClassName("tabcontent") //여러개 보여지고 있을때에도 가능
+  // for(i=0 ; i<tabcontent.length ; i++){
+  //   tabcontent[i].classList.remove("show");
+  // }
+  document.querySelector(".show")?.classList.remove("show");       //위에 active show를 지워서 있을때만 지우기 위해 ? 추가
+
+  // document.querySelector("#"+cityName)
+  document.getElementById(cityName).classList.add('show') //show 클래스 추가
+  evt.target.classList.add('active')  //active 클래스 추가
+}
+</script>
+   
+</body>
+</html> 
+
+
+
+  <title>1240append.html</title>
+  <style>
+    div { margin: 5px; padding: 10px; border: 1px solid red; }
+  </style>
+</head>
+<body>
+  <div id="basket"></div>
+
+  <div id="apple">사과</div>
+  <div id="banana">바나나</div>
+  <div id="kiwi">키위</div>
+  <div id="na">나</div>
+
+크롬가서
+basket.append(apple)
+basket.prepend(kiwi)
+kiwi.after(na)

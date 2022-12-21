@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1640propagation2.html</title>
+  <style>
+    div { margin: 5px; padding: 10px; border: 1px solid red; }
+  </style>
+</head>
+<body>
+  <div id="apple" class="ele">사과</div>
+  <div id="banana" class="ele">바나나</div>
+  <div id="kiwi" class="ele">키위</div>
+  <div id="basket"></div>
+  <div id="template" style="display:none">
+    <div class="fruit" title="사과"><span>사과</span></div>
+  </div>
+  <script>
+    document.body.addEventListener("click",function(ev){
+        if( ! ev.target.classList.contains("ele") ) {
+          return;
+        }
+        let content =  event.target.innerText
+        let div = `<div class="fruit" title="${content}"><span>${content}</span></div>`;
+        basket.innerHTML += div
+      })
+      //이벤트위임(그룹이벤트) : 부모태그에 이벤트를 지정
+      basket.addEventListener("click", function(ev){
+        let nod = ev.target;  //실제로 이벤트가 발생한 대상(태그=타켓)
+        if( node.classList.contaions("fruit") ) {   //div이면 본인을 삭제
+          node.remove();
+        }else if(node.nodeName == "span"){    //span 태그이면 부모div를 삭제
+          node.parentNode.remove();
+        }
+      })
+  </script>
+</body>
+</html>

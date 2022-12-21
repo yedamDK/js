@@ -24,7 +24,7 @@
     for(let i=0 ; i<ele.length ; i++){
       ele[i].onclick = function(){
         let content =  event.target.innerText
-        let div = '<div class="fruit" title="${content}"><span>${content}</span></div>'
+        let div = `<div class="fruit" title="${content}"><span>${content}</span></div>`;
         basket.innerHTML += div;
       }
     }
