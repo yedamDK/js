@@ -1,0 +1,745 @@
+구글에서 mdn 숫자맞추기 검색
+https://developer.mozilla.org/ko/docs/Learn/JavaScript/First_steps/A_first_splash
+
+자동줄 맞춤 전제 선택 후 컨트롤 k f
+오류 확인 크롬창 가서 컨트롤 시프트 j
+
+1~10 숫자맞추기 검색
+body 안에
+  <script>
+    let num = Math.floor(Math.random() * 10) + 1;
+
+    while (true) {
+      let guess = prompt()
+
+      if (num == guess) {
+        alert("정답");
+       break;
+      }
+      if (num < guess) {
+       alert("작다");
+      }
+      if (num > guess) {
+        alert("크다");
+      }
+    }
+</script>
+num guess 변수 while 반복문 prompt 입력함수 alert 출력함수 <와 >, == 연산자 if 조건문
+
+
+페이지 수정 남부도서관 도서관안내 인사말 가서
+document.querySelector(".doc-title>h3").innerHTML = "방가"
+
+
+p.447
+display color backgroundColor 중 하나 해보기(해본 거 다 써봄)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>p446script01.html</title>
+</head>
+<body>
+  <h1 id="heading">자바스크립트</h1>
+  <p id="text">위 텍스트를 클릭해보세요</p>
+  <script>
+     let hd = document.querySelector("#heading")
+     hd.onclick = function() {
+      hd.style.display ='none';
+      hd.style.color ='red';
+      hd.style.backgroundColor ='none';
+    }
+  </script>
+</body>
+</html>
+
+
+p.448
+설정하지 않고 script를 body에 안 넣으니 에러 뜸
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>p446script01.html</title>
+  <script>
+    let hd = document.querySelector("#heading")
+    hd.onclick = function () {
+      hd.style.display = 'none';
+    }
+  </script>
+</head>
+<body>
+  <h1 id="heading" class="back">자바스크립트</h1>
+  <p id="text">위 텍스트를 클릭해보세요</p>
+</body>
+</html>
+
+
+정상버전
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>p446script01.html</title>
+  <style>
+    .back {background-color: yellow;}
+  </style>
+</head>
+
+<body>
+  <h1 id="heading" class="back">자바스크립트</h1>
+  <p id="text">위 텍스트를 클릭해보세요</p>
+  <script>
+    let hd = document.querySelector("#heading")
+    hd.onclick = function () {
+      hd.style.display = 'none';
+    }
+  </script>
+</body>
+</html>
+
+
+p.446 외부스크립트 파일로 연결
+script 안에 내용을 .js 파일로 저장 후 <script src="이름.js"></script>로 수정
+
+API : 공공데이터 영화정보 네이버,구글,카카오 개발자센터 가입하기
+json을 xml로 바꾸면 보기 편해짐
+
+p.450  
+함수 : 기능(입력, 출력 등)을 수행하는 코드집합
+        사용자 정의 함수 생성
+alert(메시지) 
+confirm(메시지) 확인 취소가 생김
+prompt(메시지) prompt(메시지, 텍스트필드에 넣을 내용)
+예시
+  <script>
+    let num = Math.floor(Math.random() * 10) + 1;
+
+    while (true) {
+      let guess = prompt("1~10사이의 수를 입력", "5")
+
+      if (num == guess) {
+        alert("정답");
+       break;
+      }
+      if (num < guess) {
+       alert("작다");
+      }
+      if (num > guess) {
+        alert("크다");
+      }
+    }
+</script>
+</body>
+</html>
+
+
+p.450 중요 console.log() 컨트롤 시프트 j로 ()안에 내용 확인
+<script>
+    //이름을 입력 (설명=주석)
+    let name = prompt()
+    //이름을 컨솔 창에 출력
+    console.log(name)
+  </script>
+
+
+
+p.458
+에어비앤비 자바스크립트 스타일 가이드 참조
+
+
+p.463 변수: 값을 저장하는 공간
+<script>
+  /* 자기소개하기
+    이름, 나이, 취미, 주소
+  */
+  // 내 정보를 변수에 저장
+ let name = "김동군"    // 이름
+ let age = "31"        // 나이
+ let hobby = "walking" // 취미
+ let adress = "daegu"  // 주소
+    //내 정보를 콘솔에 출력
+    console.log(name);
+    console.log(age)
+    console.log(hobby)
+    console.log(adress)
+</script>
+
+
+
+p.468 매우 중요 특히 표
+<script>
+  /* 자기소개하기
+    이름, 나이, 취미, 주소
+  */
+  // 내 정보를 변수에 저장
+ let name = 'DK'    // 이름           기본형 : 문자열
+ let age = '31'        // 나이        기본형 : 숫자
+ let hobby = ['walking','running']            // 취미 복합유형: 배열(하나의 변수에 여러 값) 대괄호
+ let adress = {home:'daegu',office:'서울'}  // 주소 복합유형 : 객체 중괄호
+    //내 정보를 콘솔에 출력
+    console.log(name);
+    console.log(age)
+    console.log(hobby[0], hobby[1])
+    console.log(adress.home, adress.office)
+</script>
+
+
+
+p.466
+<script>
+    /*
+    나이계산 : 현재년도에서 출생년도를 빼서 계산
+    */
+   //현재년도 변수
+    let nowYear = 2022;
+   //출생년도 변수
+    let birYear = 1992;
+   //년도 뺀 결과 저장
+    let result = nowYear - birYear;
+   //결과 출력
+    console.log("만" + result +"세")
+  </script>
+
+p.470 
+크롬 가서 about:blank 창 가서 컨트롤 시프트 j  가서 0.1+0.2 엔터 치면 0.30000000000000004 값이 다르게 나옴
+10진수 0.5를 2진수로 바꾸면 0.1 0.25는 0.01         2진수로 0.1을 바꾸다보니 무한소수 발생해서 값이 다름
+정수형으로 바꾸면 (0.1*10+0.2*10)/10 엔터 치면 0.3 나옴
+
+p.472
+데이터 유형
+striing boolean numer 나머지는 object
+let name = '이름'
+undefined
+typeof(name)
+'string'
+let age = 20
+undefined
+typeof(age)
+'number'
+let hb = [ '게임', '독서']
+undefined
+typeof(hb)
+'object'
+let yn = true
+undefined
+typeof(yn)
+'boolean'
+
+p.475 자료형=데이터 유형
+표 보기
+크롬에서 
+let today = 15
+undefined
+let result= today % 7
+undefined
+result
+1
+let year = 2020
+undefined
+let result = year % 4
+undefined
+result
+0
+
+다시 vs에서
+  <script>
+    /*
+    var   중복선언 가능, 함수 범위
+    let(권장) : 중복선언 안 됨    한 번 쓴 result은 let을 또 쓰면 오류 발생 그래서 다음부터는 let을 쓰지 않음
+          블록 범위
+    */
+
+    //let 올해 윤년
+    let result = 2022 % 4;
+    //let 요일
+    result = 15 & 7;
+    //요일
+    let week = 15 & 7;  // 0~6사이의 값
+
+    //var 올해 윤년
+    var year = 2022 % 4;
+    //var요일
+    var year = 15 & 7;
+  </script>
+
+
+  <script>
+    /*
+    var   중복선언 가능, 함수 범위
+    let(권장) : 중복선언 안 됨    한 번 쓴 result은 let을 또 쓰면 오류 발생 그래서 다음부터는 let을 쓰지 않음
+          블록 범위
+    */
+
+    //let 올해 윤년
+    let result = 2022 % 4;
+    //let 요일
+    result = 15 % 7;
+    //요일
+    let week = 15 % 7;  // 0~6사이의 값
+    let weekName = ['월','화','수','목','금','토','일'];
+    console.log(weekName[week])
+
+    //해당월의 마지막날이 몇일인지?
+    let month = [31,28,31,30,31,30,31,31,30,31,30,31];
+    //월 입력 (1~12)    0~11
+    let m = prompt();
+    //마지막날 출력
+    console.log(m,'월은', month[m-1], '일입니다.');    //console.log(month[prompt()-1]) 과 같은 내용 ctrl shift j에서 보기
+    alert(m+'월은'+month[m-1]+'일입니다.');             //새 창으로 띄우기
+    //var 올해 윤년
+    var year = 2022 % 4;
+    //var요일
+    var year = 15 & 7;
+  </script>
+
+
+3회까지 가능
+  <script>
+    /*
+      작성일자 : 2022
+      작성자 : 홍길동
+      내용 : 숫자 맞추기 게임
+    */
+    // 임의의 수 생성
+    let num = Math.floor(Math.random() * 10) + 1;
+    let turn = 0;
+    //맞을때까지 반복
+    while (turn <3 ) {       //3회까지 가능  <=3하면 4회까지 가능
+      //사용자가 숫자 입력
+      let guess = prompt("1~10사이의 수를 입력", "5")
+      turn ++; //turn = turn + 1; 과 같다
+      //정답이면
+      if (num == guess) {
+        alert("정답");
+       break;
+      }
+      //작으면 작다 출력하고 다시 입력으로
+      if (num < guess) {
+       alert("작다");
+      }
+      //크면 크다 출력하고 다시 입력으로
+      if (num > guess) {
+        alert("크다");
+      }
+    }
+</script>
+
+
+p.478 표
+
+
+p.478 매우 중요
+연결연산자
+크롬 about:blank ctrl shift j에서
+let num = 10
+undefined
+let str = '20'
+undefined
+num + str
+'1020'
+num  * str
+200
+num - str
+-10
+num / str
+0.5
+str * 1
+20
+
+
+  <script>
+    /* 문자형 -> 숫자형    */
+    let t = '500';             //교통비
+    let f = prompt("식비입력"); //식비
+    //교통비 식비 더한 결과를 출력
+    console.log(t + f , '입니다.');
+    let t1 = 500;             //교통비
+    let f1 = prompt("식비입력"); //식비
+    //교통비 식비 더한 결과를 출력
+    console.log(t1 + f1 , '입니다.');
+    let t2 = 500;             //교통비
+    let f2 = prompt("식비입력"); //식비
+    //교통비 식비 더한 결과를 출력
+    console.log(t2 + f2*1 , '입니다.');
+  </script>
+
+
+비교연산자
+표 참고
+num = 100
+100
+str = '100'
+'100'
+num == str
+true
+num === str
+false
+num != str
+false
+num !== str
+true
+num = str
+'100'
+
+
+문자열의 비교(utf-8
+'A'> 'B'
+false
+'가' < '나'
+true
+JAVASCRIPT 문자열 코드 변환으로 나온 값으로 비교
+let name = 'Aa가'
+undefined
+name.charCodeAt(0)
+65
+name.charCodeAt(1)
+97
+name.charCodeAt(2)
+44032
+'A'> 'a'				//A 65 a 97이므로
+false
+
+p.480 중요
+논리연산자
+윤년계산하기
+year = 2000
+2000
+year % 4 == 0
+true
+result = (year % 4 == 0 && year % 100 != 0) || ( year % 400 == 0 )
+true
+year = 2100
+2100
+result = (year % 4 == 0 && year % 100 != 0) || ( year % 400 == 0 )
+false
+
+세과목 모두 60점이상인가?
+kor = 80
+80
+eng = 50
+50
+mat = 60
+60
+kor >= 60 && eng >= 60 && mat >=60
+false
+60점 미만 한 과목이라도 있는가?
+kor < 60 || eng < 60 || mat < 60
+true
+
+  <script>
+    /*
+      작성일자 : 2022
+      작성자 : 홍길동
+      내용 : 숫자 맞추기 게임
+    */
+    // 임의의 수 생성
+    let num = Math.floor(Math.random() * 10) + 1;
+    let turn = 0;
+    //맞을때까지 반복
+    while (true) {       
+      //사용자가 숫자 입력
+      let guess = prompt("1~10사이의 수를 입력(0은 종료)", "5")
+      turn ++; //turn = turn + 1; 과 같다
+      //정답이면
+      if (turn >= 3 || guess == 0 || num == guess) {    //턴 수 3회 이상이거나 입력값이 0이거나 정답 시 
+        alert("정답");
+       break;
+      }
+      //작으면 작다 출력하고 다시 입력으로
+      if (num < guess) {
+       alert("작다");
+      }
+      //크면 크다 출력하고 다시 입력으로
+      if (num > guess) {
+        alert("크다");
+      }
+    }
+</script>
+
+
+alt 방향키  줄 이동
+
+p.481 조건문
+if.html
+  <script>
+    let score = prompt("점수입력");
+    //점수가 60점이상이면 "합격" 아니면 "불합격"
+    if (score >= 60) {
+      alert("합격");
+    }
+    //등급 80 우수 70 보통 60 분발
+    if (score >= 80) {
+      alert("우수");
+    }
+    else if (score >= 70) {
+      alert("보통");
+    }
+    else if (score >= 60) {
+      alert("분발")
+    }
+    else {
+      alert("불합격");
+    }
+  </script>
+
+
+if2
+  <script>
+    /* 등급점수를 입력받아서 출력
+    4.0 이상이면 A
+    3.5 이상이면 B+
+    3.0 이상이면 B
+    C
+    */
+   let score = prompt("등급점수")
+   if(score >= 4.0){
+    alert("A");
+   }
+   else if(score >= 3.5){
+    alert("B+");
+   }
+   else if(score >= 3.0){
+    alert("B")
+   }
+   else {
+   alert("C")
+  }
+  </script>
+
+
+디버그하는 법 중간에 debugger 넣고 콘솔 창 가서 보던지 아니면 콘솔창 소스 가서 행 선택 하고 f10누르면서 넘기기
+  <script>
+    /* 등급점수를 입력받아서 출력
+    4.0 이상이면 A
+    3.5 이상이면 B+
+    3.0 이상이면 B
+    C
+    */
+   let score = prompt("등급점수")
+   debugger     //이 줄부터 멈춤 ctrl shift j 가서 prompt창 아무거나 입력후 f10으로 넘기면서 확인
+   if(score >= 4.0){
+    alert("A");
+   }
+   else if(score >= 3.5){
+    alert("B+");
+   }
+   else if(score >= 3.0){
+    alert("B")
+   }
+   else {
+   alert("C")
+  }
+
+
+if구문으로 하는 숫자맞추기 게임(시도횟수 5, 0입력 시 게임 중지)           
+    let num = Math.floor(Math.random() * 10) + 1;
+    let turn = 0;
+    //맞을때까지 반복
+    while (true) {       
+      //사용자가 숫자 입력
+      let guess = prompt("1~10사이의 수를 입력(0은 종료)", "5")
+      turn ++; //turn = turn + 1; 과 같다
+      //입력 값이 0이면 게임중지
+      if(guess == 0){
+        alert("게임중지")
+        break;
+      }
+      //시도횟수 5회 넘으면 게임오버
+      else if(turn > 5){
+        alert("게임오버")
+        break;
+      }
+      else if(num == guess){
+        alert("정답")
+        break;
+      }
+      else if (num < guess) {
+       alert("작다");
+      }
+      else {
+        alert("크다");
+      }
+    }
+
+
+  <script>
+    for(let i=1 ; i <= 10 ; i++ ) {
+    document.write(i,'hello', '<br>')
+  }
+  for(let i=10 ; i >= 1 ; i-- ) {
+    document.write(i,'hello', '<br>')
+  }
+  for(let i=10 ; i >= 1 ; i=i-2 ) {
+    document.write(i,'hello', '<br>')
+  }
+  </script>
+
+ <h3>반복문연습</h3>
+  <button id="btn">출력</button>
+  <ul>
+    <script>
+      btn.onclick = function () {
+        for (let i = 10; i >= 1; i = i - 2) {
+          document.write("<tr><td>", i, 'hello',</tr></td>)
+        }
+      }
+    </script>
+  </ul>
+
+
+
+  <h3>반복문연습</h3>
+  <button id="btn">출력</button>
+  <ul>
+    <script>
+      btn.onclick = function () {
+        for (let i = 10; i >= 1; i = i - 2) {
+          document.write("<li>", i, 'hello',)
+        }
+      }
+    </script>
+  </ul>
+
+
+  <h3>반복문연습</h3>
+  <button id="btn">출력</button>
+  <ul id="result">
+  </ul>
+  <script>
+    btn.onclick = function () {
+      for (let i = 10; i >= 1; i = i - 2) {
+        result.innerHTML += "<li>" + i + 'hello';
+      }
+    }
+  </script>
+    }
+
+alt shift 아래키 복사
+shift tab 앞으로 당기기
+
+
+1부터 5까지 더하기
+  <script>
+  let sum = 0;
+
+  for(let i=1 ; i <= 5 ; i++ ){
+    sum += i;
+  }
+  alert(sum);
+
+ 1부터 100더하기
+  let num = 100			
+  for(let i=1 ; i <= num ; i++ ){
+    sum += i;
+  }
+ </script>
+
+
+  <script>
+  let sum = 0;    //합계
+
+  //원하는 숫자입력 
+  let num = prompt()  //입력값
+  for(let i=1 ; i <= num ; i++ ){
+    sum += i;
+  }
+  alert(sum);
+ </script>
+
+
+
+  <script>
+    /* 배열과 반복문 */
+    let score = [100, 90,100,80];
+    let sum = 0;
+
+    sum += score[0]
+    sum += score[1]
+    sum += score[2]
+    sum += score[3]
+
+    alert(sum)
+  </script>
+
+
+  <script>
+    /* 배열과 반복문 */
+    let score = [100,90,100,80];  //0~3 0부터 시작 잊지 말기 1부터 시작 x
+    let sum = 0;
+
+    for(let i=0 ; i <= 3 ; i++){
+    sum += score[i];
+    }
+    alert(sum)
+  </script>
+
+데이터.length 쓰면 갯수를 안 구해도 다 더해 줌
+.length 쓸 때는 = 쓰면 안 된다.
+  <script>
+    /* 배열과 반복문 */
+    let score = [100,90,100,80,100];  //0~3 0부터 시작 잊지 말기 1부터 시작 x
+    let sum = 0;
+
+    for(let i=0 ; i < score.length ; i++){
+    sum += score[i];
+    }
+    alert(sum)
+  </script>
+
+
+  table>(tr>td*3)*3 엔터 후 td 사이에 숫자 넣기
+  <script>
+    //테이블 전체 성적의 합계
+    let td = document.querySelectorAll("td");  //모든 td 값
+    let sum = 0;  //합계
+    for(let i=0 ; i < td.length ; i++) {
+      sum += parseInt(td[i].innerText);
+    }
+    console.log('전체합계=',sum)
+  </script>
+
+
+table>(tr>td*2)*5
+  <script>
+    //1열의 합
+    let sum = 0;
+    let td=document.querySelectorAll("tr td:nth-child(1)");
+    
+    for(i=0 ; i < td.length ; i++){
+      sum += parseInt(td[i].innerText);
+    }
+    console.log("1열합=",sum)
+  </script>
+
+똑같은 결과
+    let td=document.querySelectorAll("td");    
+    for(i=0 ; i < td.length ; i=i+2)
+
+  <script>
+    //1행의 합
+    let sum = 0;
+    let td=document.querySelectorAll("tr:nth-child(1) td");
+    
+    for(i=0 ; i < td.length ; i++){
+      sum += parseInt(td[i].innerText);
+    }
+    console.log("1열합=",sum)
+  </script>
+
+똑같은 결과
+      sum += td[i].innerText*1;
+
+
+
+
+
+
+
+

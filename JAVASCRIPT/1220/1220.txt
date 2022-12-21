@@ -1,0 +1,652 @@
+git 설치
+explorer 에서 터미널 열어서
+git config --global user.name "John Doe"
+git config --global user.email johndoe@example.com
+or
+깃허브 사이트 가서 new repository 눌러서 이름 정하고 만들기
+
+소스컨트롤 누른뒤
+이름 정한 뒤 커밋 추가하고
+explorer 에서 터미널 열고
+git add*
+git branch -M main
+git remote add origin https://github.com/yedamDK/js.git
+git push -u origin main
+
+깃허브 push하는법
+f1눌러서 git clone
+깃허브 가서 code 눌러서 주소 복사 한 것 넣기
+
+1121
+크롬 about:black f12
+arr = ['aa', 'bb']
+console.table(arr)
+
+
+  <title>1123p483if3.html</title>
+</head>
+
+<body>
+  <script>
+    function passCheck(){
+    let score = 60
+    let result = score >=60? "pass" : "fail"    // 3항 조건 연산자 아래 수식을 한 줄로 줄임.
+/*      let result;   //"pass" "fail"
+       if (score >= 60) {
+      result = "pass";
+    }
+    else {
+      result ="fail";
+    } */
+    console.trace(result)   //trace는 함수 호출 과정 위치 다 알려줌
+    }
+
+    passCheck()
+  </script>
+
+  <title>1134if4.html</title>
+  <style>
+    .red { color : red}
+  </style>
+</head>
+<body>
+  <div id="result"></div>
+  <script>
+/*     let score = 55;
+    result.innerHTML += `<div class="${score < 60 ? 'red' : ''}">${score}</div>`   
+    //score 값 표현 훈다. 그리고 60점이하면 빨간색으로 한다. */
+    let score = [55,65];
+    for(let i=0 ; i< score.length ; i++){
+    result.innerHTML += `<div class="${score[i]<60 ? 'red' : ''}">${score[i]}</div>`
+    }
+  </script>
+
+ <title>1148if5.html</title>
+</head>
+<body>
+  <div id="result"></div>
+  <script>
+    // let fruit = ['사과', '바나나','키위']
+    // let checked = '바나나'
+    // for (let i=0 ; i<fruit.length ; i++){
+    //   result.innerHTML += `<input type="checkbox" 
+    //       ${fruit[i]==checked ? "checked" : ""}>${fruit[i]}`
+    // }
+    let fruit = ['사과', '바나나','키위']
+    let checked = ['바나나','키위']
+    //debugger
+    for (let i=0 ; i<fruit.length ; i++){
+      result.innerHTML += `<input type="checkbox" 
+        ${checked.indexOf(fruit[i]) != -1 ? "checked" : ""}>${fruit[i]}`
+     }
+
+  </script>
+
+  <title>1222p498이중while문.html</title>
+</head>
+<body>
+  <script>
+    let arr=[2,5,10,20,4]
+    for(let i=0 ; i<arr.length ; i++){
+      console.log(arr[i]);
+    }
+    // let i=0;          
+    // while(true){        //조건문에 true를 넣으면 무한 루프 if로 종료조건 만들기
+    //   console.log(i++)
+    //   if(i>=arr.length){
+    //     break;
+    //   }
+    // }
+
+    //for문을 while문으로 만들기
+    // let i=0;
+    // while(i<arr.length){
+    //   console.log(arr[i])
+    //   i++;
+    // }
+
+    // let i=0;
+    // let lotto = [];
+    // while(i<6){
+    //   let num = Math.round (Math.random()*44) +1
+    //   if(lotto.indexOf(num) == -1){
+    //     lotto.push(num)
+    //     i++;
+    //   }
+    // }
+    // console.log(lotto)
+
+
+    let i=0;
+    let lotto = [];
+    do{
+      let num = Math.round (Math.random()*44) +1
+      if(lotto.indexOf(num) == -1){
+        lotto.push(num)
+        i++;
+      }
+    }while(i<6)
+    console.log(lotto)
+
+    
+    // let lotto = [];
+    // for(let i=0; i<6; i++){
+    //   let num = Math.round (Math.random()*44)+1
+    //   if(lotto.indexOf(num) == -1){
+    //     lotto.push(num)
+    //   }else{
+    //     i--;   //중복하면 다시 한 번 더 돌리기 위해서 i-- ex. 2번째에서 같은 숫자가 나오면 다시 2번째 함
+    //   }
+    // }
+    // console.log(lotto)
+  </script>
+
+
+  <title>1422for6.html</title>
+</head>
+<body>
+  <h3>break, continue</h3>
+  <script>
+    // arr = [10, 5, 20]
+    // let num = 12 //검색값
+    // //index검색
+    // let i;
+    // for(i=0 ; i<arr.length ; i++){
+    //   if(arr[i] == num){
+    //     break;
+    //   }
+    // }
+    // console.log(i);     //없는 값으로 하면 3이 나옴
+
+    arr = [10, 5, 20]
+    let num = 25 //검색값
+    //index검색
+    let i;
+    let idx = -1;
+    for(i=0 ; i<arr.length ; i++){
+      if(arr[i] == num){
+        idx = i;
+        break;
+      }
+    }
+    console.log(idx);     //없는 값으로 하면 -1이 나옴
+    console.log(i);     //없는 값으로 하면 3이 나옴
+
+  </script>
+
+
+  <title>1433for7.html</title>
+</head>
+<body>
+  <script>
+    // let arr = [1,2,4,6,10,13]
+    // for(let i=0 ; i<arr.length ; i++){
+    //   //짝수이면
+    //   if(arr[i] % 2 == 0){
+    //   }
+    //     console.log(arr[i]);
+    // }
+
+
+    // let arr = [1,2,4,6,10,13]
+    // for(let i=0 ; i<arr.length ; i++){
+    //   if(arr[i]%2 != 0){
+    //     continue;                     //홀수이면 다음으로 넘어간다.
+    //   }
+    //   console.log(arr[i]);
+    //   console.log(i);
+    // }
+
+    let arr = [1,2,4,6,10,13]
+    for(let i=0 ; i<arr.length ; i++){
+      if(arr[i]%2 == 0){
+        continue;                     //홀수만 찍는다
+      }
+      console.log(arr[i]);
+      console.log(i);
+    }
+</script>
+
+
+  <title>1441for8.html</title>
+</head>
+<body>
+  <script>
+  let arr = [3,4,6,10,2,9]
+    //배열에서 5보다 큰 수가 몇 개인지 카운트
+  // let count = 0;
+  // for(let i=0 ; i<arr.length ; i++){
+  //   if(arr[i]>5){
+  //     count++;
+  //   }
+  // }
+
+    //배열에서 promt()입력값보다 큰 수가 몇 개인지 카운트
+    let count = 0;
+    let num = prompt()
+  for(let i=0 ; i<arr.length ; i++){
+    if(arr[i]>num){
+      count++;
+    }
+  }
+
+  console.log(count)
+  </script>
+
+
+1500
+https://gurtn.tistory.com/54
+
+1525
+p535 함수표현식
+  <title>1525p535function_arrow.html</title>
+</head>
+<body>
+  <script>
+    //다 같은 내용 다른 방식 입력
+
+    // function hi(){
+    //   let greet = 'hello';
+    //   return greet;
+    // }
+
+
+    //div.onclick = function(){}    //익명함수
+    // let hi =function(){
+    //   let greet = 'hello';
+    //   return greet;
+    // }
+
+    // let hi =function(){                            //return이 있으면 {}생략가능
+    //   return 'hello'
+    // }
+
+
+
+    // let hi = () => 'hello';
+    
+    // console.log( hi());
+
+
+    // let hi =function(name){
+    //   return name + 'hello'
+    // }
+
+    let hi = name => name + 'hello';                //하나만 있을 때는 ()생략가능
+    console.log( hi('choi'));
+
+    let hi2 = function(name){
+      alert(name + 'hello')
+    }
+
+    function sum(a,b) {
+      return a+b;
+    }
+    console.log( sum(10,20) ) ;
+
+    let sum2 = (a,b) => a+b;
+    console.log( sum2(10,20) ) ;
+
+  </script>
+
+
+1542 책에 없는 내용
+https://www.w3schools.com/js/js_timing.asp
+setInterval(function, milliseconds) 정해진 간격마다 function 호출
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Timing</h2>
+
+<p>Click "Try it". Wait 3 seconds, and the page will alert "Hello".</p>
+
+<button onclick="setInterval(myFunction, 3000);">Try it</button>
+
+<script>
+function myFunction() {
+  alert('Hello');
+}
+</script>
+
+</body>
+</html>
+
+
+setTimeout(myFunction, 3000) 3초 뒤에 실행
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Timing</h2>
+
+<p>Click "Try it". Wait 3 seconds, and the page will alert "Hello".</p>
+
+<button onclick="setTimeout(myFunction, 3000);">Try it</button>
+
+<script>
+function myFunction() {
+  alert('Hello');
+}
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Timing</h2>
+
+<p>Click "Try it". Wait 3 seconds, and the page will alert "Hello".</p>
+
+<button onclick="setTimeout( ()=>{  alert('Hello') }, 3000);">Try it</button>
+
+</body>
+</html>
+
+
+  <title>1549p538random_interval.html</title>
+</head>
+<body>
+  <img src="./img/개죽이1.jpg" id="img">
+  <script>
+    let imgArr = new Array();
+    imgArr.push("./img/개죽이1.jpg");
+    imgArr.push("./img/개죽이2.jpg");
+    imgArr.push("./img/개죽이3.jpg");
+    imgArr.push("./img/레드향.jpg");
+    //img.src = "./img/사과.jpg"    이렇게 하면 이 이미지로 바꿔서 나옴
+    //배열의 크기만큼
+
+  //   function changeImg(){
+  //   image = Math.floor(Math.random()*imgArr.length)
+  //   img.src=imgArr[image]
+  // }
+
+  // window.setInterval(changeImg, 2000)
+
+  window.setInterval( ()=>{image = Math.floor(Math.random()*imgArr.length)
+    img.src=imgArr[image]}, 2000)
+</script>
+
+
+  <title>Document</title>
+</head>
+<body>
+  <h3>즉시실행함수</h3>
+  <script>
+    // (function hi(){
+    //   alert('hello')
+    // })();
+
+    (()=> alert('hello'))();    //명령어 뿐이라 중괄호 생략
+
+   </script>
+
+
+16:13
+새책 7장 p.205
+교안 dom 처음부터
+
+
+1619
+  <title>1619node타입.html</title>
+</head>
+<body>
+  <span>span</span>
+  <p>p</p>
+</body>
+
+에서 크롬 연 뒤 콘솔창에서
+document.body.childNodes
+text, span, text, p, text  			//엔터친 것도 text노드여서
+document.querySelector("p").previousElementSibling		//형제
+<span>​span​</span>​
+document.querySelector("p").parentElement			//부모
+<body>​…​</body>​
+document.querySelector("p").previousSibling			//텍스트노드포함 형제찾기
+#text
+document.body.childNodes[0]
+#text
+assignedSlot: null
+baseURI: "http://127.0.0.1:5500/4%EC%9D%BC%EC%B0%A8%201220/1619node%ED%83%80%EC%9E%85.html"
+childNodes: NodeList []
+data: "\n  "			//엔터 의미
+document.body.childNodes[1].nodeName 	//노드이름 찾기
+
+
+1634 교안dom p.6
+document.querySelector("span").setAttribute("title","headtitle")
+document.querySelector("span").title ="bodytitle" 
+let span = document.querySelector("span")
+span.prodnum = 100
+100
+span.prodnum		//dom객체가 추가 됨. 없는 태그 추가
+100
+span.getAttribute("prodnum")		//없는 태그라 추가해도 안 보임
+null
+span.getAttribute("title")
+'bodytitle'
+span.title
+'bodytitle'
+
+1647selector.html
+</head>
+<body>
+  <div class="container">
+    <div class="textareacontainer">
+      <div class="textarea">
+        <div style="overflow:auto;">
+          <div class="headerText">
+            <span class="smalldevice">Click a selector:</span>
+            <span class="largedevice">Click a selector to see which element(s) gets selected in the result:</span>
+          </div>
+        </div>
+        <div class="textareawrapper" style="padding-top:5px;overflow:auto;">
+     <div id="selectorOptions" style="margin:10px;margin-right:0px;">
+     </div>
+     <div id="selectorDescription"></div>
+         </div>
+      </div>
+    </div>
+    <div class="iframecontainer">
+      <div class="iframe">
+        <div style="overflow:auto;">
+          <div class="headerText">Result:</div>
+        </div>
+        <div class="iframewrapper">
+          <div id="iframeResult" class="result_output" style="overflow:auto;">
+          
+          
+         <div id="selectorResult" style="padding:5px;" class="noSel">
+         <div class="noSel">
+  <h1><span class="markup">&lt;h1&gt;</span>Welcome to My Homepage<span class="markup">&lt;/h1&gt;</span></h1>
+  
+  <div id="helpIntro">
+  <span class="markup">&lt;div class="intro"&gt;</span>
+  <div class="intro">
+  <p style="margin-top:4px;"><span class="markup">&lt;p&gt;</span>My name is Donald <span id="Lastname"><span class="markup">&lt;span id="Lastname"&gt;</span>Duck<span class="markup">&lt;/span&gt;</span></span><span class="markup">&lt;/p&gt;</span></p>
+  <p id="my-Address"><span class="markup">&lt;p id="my-Address"&gt;</span>I live in Duckburg<span class="markup">&lt;/p&gt;</span></p>
+  <p style="margin-bottom:4px;"><span class="markup">&lt;p&gt;</span>I have many friends:<span class="markup">&lt;/p&gt;</span></p>
+  </div>
+  <span class="markup">&lt;/div&gt;</span>
+  </div>
+  
+  <br>
+  <div class="helpUl">
+  <span class="markup">&lt;ul id="Listfriends&gt;</span>
+  <ul id="Listfriends" style="margin-top:0px;margin-bottom:0px;">
+  
+  <li><span class="markup">&lt;li&gt;</span>Goofy<span class="markup">&lt;/li&gt;</span></li>
+  <li><span class="markup">&lt;li&gt;</span>Mickey<span class="markup">&lt;/li&gt;</span></li>
+  <li><span class="markup">&lt;li&gt;</span>Daisy<span class="markup">&lt;/li&gt;</span></li>
+  <li><span class="markup">&lt;li&gt;</span>Pluto<span class="markup">&lt;/li&gt;</span></li>
+  </ul>       
+  <span class="markup">&lt;/ul&gt;</span>
+  </div>
+  <ul style="display:none;"></ul>
+  
+  <p><span class="markup">&lt;p&gt;</span>I really like Daisy!!<span class="markup">&lt;/p&gt;</span></p>
+  
+  <p lang="it" title="Hello beautiful"><span class="markup">&lt;p lang="it" title="Hello beautiful"&gt;</span>Ciao bella<span class="markup">&lt;/p&gt;</span></p>
+  
+  
+  <h3><span class="markup">&lt;h3&gt;</span>We are all animals!<span class="markup">&lt;/h3&gt;</span></h3>
+  
+  <p><span class="markup">&lt;p&gt;</span><span><b><span class="markup">&lt;b&gt;</span>My latest discoveries has led me to believe that we are all animals:<span class="markup">&lt;/b&gt;</span></b></span><span class="markup">&lt;/p&gt;</span></p>
+  
+  <div class="helpTable" style="width:220px;">
+  <span class="markup">&lt;table&gt;</span>
+  <ul style="display:none;"></ul>
+  
+  <table cellpadding="2" cellspacing="2">
+  <tr>
+  <th style="background-color:#f1f1f1;">Name</th>
+  <th style="background-color:#f1f1f1;">Type of Animal</th>
+  </tr>
+  <tr>
+  <td style="background-color:#f1f1f1;">Mickey</td>
+  <td style="background-color:#f1f1f1;">Mouse</td>
+  </tr>
+  <tr>
+  <td style="background-color:#f1f1f1;">Goofey</td>
+  <td style="background-color:#f1f1f1;">Dog</td>
+  </tr>
+  <tr>
+  <td style="background-color:#f1f1f1;">Daisy</td>
+  <td style="background-color:#f1f1f1;">Duck</td>
+  </tr>
+  <tr>
+  <td style="background-color:#f1f1f1;">Pluto</td>
+  <td style="background-color:#f1f1f1;">Dog</td>
+  </tr>
+  </table>
+  <span class="markup">&lt;/table&gt;</span>
+  </div>
+  
+  <div class="noSel newsletter" style="background-color:#99D6FF;border:1px solid #0099FF;padding:10px;xfont-size:12px;">
+  <form>
+   <h4>Subscribe to my newsletter:</h4>
+   <div style="overflow:auto;">
+    <div style="width:100px;float:left;">Name:</div><div style="width:180px;float:left;"><input type="text" style="width:150px" class="markup" /></div>
+      </div>
+   <div style="overflow:auto;">
+    <div style="width:100px;float:left;">E-mail:</div><div style="width:180px;float:left;"><input type="text" style="width:150px" class="markup" /></div>
+      </div>
+   <div style="overflow:auto;">
+    <div style="width:100px;float:left;">Password:</div><div style="width:180px;float:left;"><input type="password" style="width:150px" name="password" value="password" /></div>
+      </div>
+      Female: <input name="rr" type="radio" id="rr1" checked="checked" style="outline:2px solid transparent"/>
+   Male: <input name="rr" type="radio" id="rr2" style="outline:2px solid transparent" />
+   Other: <input name="rr" type="radio" id="rr3" disabled="disabled" style="outline:2px solid transparent" />  
+   <div style="overflow:auto;">
+    <h4>Newscategories:</h4>
+    <div style="width:70px;float:left;">Ducks:</div><div style="width:20px;float:left;"><input id="cc1" type="checkbox" checked="checked" style="outline:2px solid transparent" /></div>
+      </div>
+   <div style="overflow:auto;">
+    <div style="width:70px;float:left;">Dogs:</div><div style="width:20px;float:left;"><input id="cc2" type="checkbox" style="outline:2px solid transparent" /></div>
+      </div>
+   <div style="overflow:auto;">
+    <div style="width:70px;float:left;">Humans:</div><div style="width:20px;float:left;"><input id="cc3" type="checkbox" style="outline:2px solid transparent" /></div>
+   </div>
+   <div class="noSel" style="clear:both;"></div>   
+   <input class="noSel" type="reset" value="Reset" style="outline:2px solid transparent" />
+   <input class="noSel" type="submit" value="Submit" style="outline:2px solid transparent" /> 
+   <input class="noSel" type="button" value="Cancel" style="outline:2px solid transparent" />
+   <h4>My Favourite:</h4>
+   <select multiple class="myselect">
+    <option>Donald</option>
+    <option selected>Mickey</option>
+    <option>Goofy</option>  
+   </select>
+   <h4>Upload image:</h4>
+   <input type="file">
+   <input type="image" src="arrow-r.jpg" style="border:3px solid transparent">
+  </form>
+  </div>
+  
+  <br>
+  
+  
+  
+  
+         </div>
+  
+    </div>
+          
+          
+          
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footerText">Click the jQuery Selectors and see the specified element(s) get selected. &copy; <a href="https://www.w3schools.com">w3schools.com</a></div>      
+  </div>
+  
+</body>
+콘솔 창에서
+document.querySelector(".intro")
+<div class=​"intro">​…​</div>​
+document.querySelector(".noSel>h1")
+<h1>​…​</h1>​
+document.querySelector("#Lastname")
+<span id=​"Lastname">​…​</span>​
+
+
+  <title>1709add와remove.html</title>
+</head>
+<body>
+  <h3>노드 추가 삭제</h3>
+  <button class="btnadd">+</button>
+  <div class=" temp">
+    <input id="school"><input id="dt"><button class="btn">-</button>
+  </div>
+  <div id="result"></div>
+  <script>
+    let btnadd = document.getElementsByClassName("btnadd")[0]    //elements는 배열로 인식하기에 [0] 꼭 붙이기
+    btnadd.onclick = function (){
+      // result.innerHTML +=
+      // ` <div class=" temp">
+      //    <input id="school"><input id="dt"><button class="btn">-</button>
+      //   </div>
+      // `
+      let div = document.createElement("div");
+      //setAttribute
+      //appendChild  = append
+      //innerText
+    }
+
+  </script>
+
+  <title>1726option_move.html</title>
+</head>
+<body>
+  <select size="10" id="left">
+    <option>바나나</option>
+    <option>사과</option>
+    <option>키위</option>
+    <option>토마토</option>
+  </select>
+  <select size="10" id="right"></select>
+  <!-- 왼쪽 옵션을 클릭하면 오른쪽 셀렉에 추가 innerHTML이나 옵션태그로 append로-->
+  <script>
+    left.ondblclick = function(ev){
+      let option1 = ev.target;
+      console.log(ev.target)  //option
+      // ev.target.remove()     //본인 지우기
+      left.removeChild(ev.target)   //부모가 자식 지우기 방식만 다를뿐 같은 내용
+    }
+    //태그생성해서 right  append하기
+    let btnadd = document.getElementsByClassName("btnadd")[0]   
+    btnadd.onclick = function (){
+      // result.innerHTML +=
+      // ` <div class=" temp">
+      //    <input id="school"><input id="dt"><button class="btn">-</button>
+      //   </div>
+      // `
+      }
+    
+
+  </script>

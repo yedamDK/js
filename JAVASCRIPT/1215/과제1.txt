@@ -1,0 +1,104 @@
+hello 출력		https://www.acmicpc.net/problem/2557
+    console.log('Hello World!');
+
+윤년			https://www.acmicpc.net/problem/2753 
+    let year=prompt('연도는 1보다 크거나 같고, 4000보다 작거나 같은 자연수이다.')
+    if((year % 4 == 0 && year % 100 != 0) || year % 400 == 0){
+      console.log(1);
+    }
+    else {
+      console.log(0);
+    }
+
+나머지연산		https://www.acmicpc.net/problem/10430 
+  let num = prompt("(2 ≤ A, B, C ≤ 10000)").split(" ");
+  let A = num[0]*1;
+  let B = num[1]*1;
+  let C = parseInt(num[2]);
+
+  console.log((A+B)%C)
+  console.log(((A%C) + (B%C))%C)
+  console.log((A*B)%C)
+  console.log(((A%C) * (B%C))%C)
+
+비교			https://www.acmicpc.net/problem/1330
+    let num = prompt("-10,000 ≤ A, B ≤ 10,000").split(" ")
+    let A = parseInt(num[0]);
+    let B = parseInt(num[1]);
+    if(A > B){
+      console.log(">")
+    }else if(A <B){
+      console.log("<")
+    }else {(A == B)
+      console.log("==")
+    }
+
+
+알람			https://www.acmicpc.net/problem/2884 IF +연산(45분보다 작으면 시간 빼고 60분 더하기)
+    let num = prompt().split(" ")
+    let H = parseInt(num[0]);
+    let M = parseInt(num[1]);
+    if(M >= 45){
+        M = M - 45;
+    }
+    else {
+        H = H - 1;
+        M = M+60-45;
+    }
+    if(H < 0){
+      H = 23;
+    }
+    console.log(H , M)
+
+
+
+요일			https://www.acmicpc.net/problem/1924 배열 [31,28 ] 월은 1 일은 1 토탈데이가 1
+1월 10일이면 10 2월 5일 이면 31+5 3월 20일이면 31+28+20 월-1 한 값 넣기 그리고 7로 나눠서 IF구문으로 나머지가 0이면 일요일 1이면 일요일
+
+    let num = prompt("x(1 ≤ x ≤ 12)와 y(1 ≤ y ≤ 31)").split(" ");
+    let x = parseInt(num[0]);
+    let y = parseInt(num[1]);
+    let date = [31,28,31,30,31,30,31,31,30,31,30,31];
+    let sum = 0;
+    
+    for(let i=0 ; i< x -1 ; i++){
+      sum += date[i];
+    }
+
+    // let date = [0,31,28,31,30,31,30,31,31,30,31,30];
+    // let sum = 0;
+    
+    // for(let i=0 ; i< x ; i++){
+    //   sum += date[i];
+    // }
+
+    if((sum + y) % 7 == 0){
+      console.log('SUN');
+    }
+    else if((sum + y) % 7 == 1){
+      console.log('MON');
+    }
+    else if((sum + y) % 7 == 2){
+      console.log('TUE');
+    }
+    else if((sum + y) % 7 == 3){
+      console.log('WED');
+    }
+    else if((sum + y) % 7 == 4){
+      console.log('THU');
+    }
+    else if((sum + y) % 7 == 5){
+      console.log('FRI');
+    }
+    else {
+      console.log('SAT')
+    }
+
+
+
+큰수 			https://www.acmicpc.net/problem/10871
+N개 출력			https://www.acmicpc.net/problem/2742
+최소,최대         	            https://www.acmicpc.net/problem/10818 
+구구단			https://www.acmicpc.net/problem/2739
+평균(이중for)		https://www.acmicpc.net/problem/4344
+별			https://www.acmicpc.net/problem/2439

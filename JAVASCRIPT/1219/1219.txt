@@ -1,0 +1,674 @@
+16장 javascript03(내장객체)
+자바는 프로토타입 용어 이해 필요필요
+객체=object=개체
+ -프로그램에서 인식할 수 있는 모든 대상
+프로퍼티=속성: input 안에 들어가는 값을 저장 ex.배경색 !괄호가 없다!
+객체에 속한 함수를 매소드라 함 !괄호가 있다! 동작을 나타냄
+
+프로토타입 =초기, 원형
+객체를 생성하는 함수
+함수function쓰는 목적 재활용
+this 뒤에 프로폴티
+new 함수는 일반 함수가 아니라 생성자함수: 인스턴스=생성된 객체를 생성하는 함수,프로퍼티로 프로토타입을 만듦.
+this person 객체의 참조변수
+
+#########################################################################
+0900프로토타입.html
+  <script>
+    function Person(name, age){
+      this.name = name;
+      this.age = age;   //프로퍼티(필드=속성)
+      this.addr ='대구'
+
+      this.print = function(){
+        console.log(this.name, this.age, this.addr);
+      }
+    }
+
+    let p1 = new Person('choi',20);
+    let p2 = new Person('park',30);
+
+    p1.print();
+    p2.print();
+  </script>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+########################################################################
+let str = 'hi             '
+undefined
+String.prototype.ltrim = function () {
+return this.replace(/^\s+/, '');
+}
+ƒ () {
+return this.replace(/^\s+/, '');
+}
+String.prototype.rtrim = function () {
+return this.replace(/\s+$/, '');
+}
+
+ƒ () {
+return this.replace(/\s+$/, '');
+}
+str = '           hi           '
+'           hi           '
+str.ltrim()
+'hi           '
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+str = new String('hi') 객체를 축약 해서 str = 'hi'라고 쓰는 것 자바스크립트는 대부분이 객체임
+arr = new Array(1,2)     ex)  [1,2]
+
+브라우저 관련객체 =BOM
+body 안 의 모든 것들이 문서 객체 모들
+생성자 함수
+문자 new String
+숫자 new Number
+날짜 new Date(축약형 없음)
+배열 new Array
+사용자 정의 객체를 만들 수 있음
+
+########################################################################
+let today = Date()를 만들면 생성자함수x 일반함수
+typeof today
+'string'
+today
+'Mon Dec 19 2022 09:39:02 GMT+0900 (한국 표준시)'
+
+let today = new Date()
+typeof today
+'object'
+today
+Mon Dec 19 2022 09:39:31 GMT+0900 (한국 표준시)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+########################################################################
+프로토타입2
+바디에    <input id = "txt"> 추가하고
+f12
+txt.value = 'hi'
+txt.style.color = 'blue'
+text.select()
+txt.readOnly =true
+txt.readOnly =false
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+Array 매서드
+filename='abc.txt'
+filenaee.indexof(".")
+arr=['a','b','c']
+arr.indexof('b')
+
+fruit
+(2) ['1', '3']
+fruit.indexOf('1')
+0
+fruit.indexOf('a')			//없는값은 -1
+-1
+fruit.slice(1)
+fruit.slice(2,0,'b','c','d')
+fruit.splice(2,3)
+let idx =fruit.indexOf('k')
+fruit.splice(idx,1)
+
+###################################################################
+1003.html
+  <input id="txt">
+  <button id="addBtn" >추가</button>
+  <button id="delBtn">삭제</button>
+  <div id="result"></div>
+  <script>
+    let fruit = new Array();        //[]가 new Array()의 축약형
+    addBtn.onclick = function(){
+      fruit.push(txt.value);
+      result.innerText = fruit.toString();
+      txt.value = '';
+    }
+
+    // delBtn.onclick = function(){
+    //   let el = fruit.pop(); //
+    //   alert(el)
+    //   result.innerText = fruit.toString();
+    // }
+
+    // delBtn.onclick = function(){
+    //   fruit.shift();
+    //   result.innerText = fruit.toString();
+    // }
+
+    delBtn.onclick = function(){
+      let idx = fruit.indexOf(txt.value);
+      if(idx>=0){       //if 설정하지 않으면 없는값을 지우라고 할 때 맨 뒤에부터 지워짐
+      fruit.splice(idx,1)     
+      result.innerText = fruit.toString();
+      }
+    }
+
+  </script>
+
+
+let today = new Date()
+undefined
+today.getHours()
+11
+today.getUTCHours()
+2
+
+
+  <div id="result"></div>
+  <script>
+    let firstday = new Date("2022-10-01");     //2022-10-01로 하면 2022-10-01T00:00로 2022-10-1로 하면 2022-10-01T현재시간
+    // let firday = new Date("2022-10-1");
+    // console.log(firstday.getHours());
+    // console.log(firday.getHours());
+
+    let now = new Date();
+    let passTime = now.getTime() - firstday.getTime();
+    result.innerHTML = passTime/1000/60/60/24 + '<br>';   // 일수     <br>태그(색 배경 등) 넣을 때는 HTML로 Text안됨
+    result.innerText += passTime/1000/60/60               // 시간     계속 값을 넣기 위해서 +=으로 함(안쓰면 위에 값 안 나오고 덮어씀)
+
+</script>
+
+  <div id="result"></div>
+  <script>
+    let firstday = new Date("2022-10-01");     //2022-10-01로 하면 2022-10-01T00:00로 2022-10-1로 하면 2022-10-01T현재시간
+    let now = new Date();
+    now.setFullYear(2000)
+    console.log(now)
+    now.setMonth(now.getMonth()+10)
+    console.log(now)
+  </script>
+
+  <div id="result"></div>
+  <script>
+    let now = new Date();
+    //d-day 2023-5-31
+    let lastDay = new Date("2023-05-31")
+    let remainDay = lastDay.getTime() - now.getTime();
+
+    result.innerHTML = remaianDay/1000/60/60/24 + '<br>';
+    result.innerText += remainDay/1000/60/60
+</script>
+
+
+  <div id="result"></div>
+  <script>
+    let firstday = new Date("2022-10-01");
+    let now = new Date();    let passTime = now.getTime() - firstday.getTime();
+    
+    result.innerHTML = Math.floor(passTime/1000/60/60/24) + '<br>';   // 일수     <br>태그(색 배경 등) 넣을 때는 HTML로 Text안됨
+    result.innerText += Math.round(passTime/1000/60/60)               // 시간     계속 값을 넣기 위해서 +=으로 함(안쓰면 위에 값 안 나오고 덮어씀)
+    result.innerText += Math.ceil(passTime/1000/60/60) 
+</script>
+
+
+  <title>1140p573random</title>
+</head>
+<body>
+  <script>
+    //Math.random() : 0~0.9999  *10 -> 0~9.999 소수점 아래 자르고 +1
+    let num = Math.floor(Math.random()*10)+1
+    console.log(num)
+
+      //50~100
+    //   let num2 = Math.floor(Math.random()*50)+50
+    // console.log(num2)
+
+  </script>
+</body>
+
+
+  <title>1140p573random2</title>
+</head>
+<body>
+  <img src="./img/개죽이1.jpg" id="img">
+  <script>
+    let imgArr = new Array();
+    imgArr.push("./img/개죽이1.jpg");
+    imgArr.push("./img/개죽이2.jpg");
+    imgArr.push("./img/개죽이3.jpg");
+    imgArr.push("./img/레드향.jpg");
+    //img.src = "./img/사과.jpg"    이렇게 하면 이 이미지로 바꿔서 나옴
+    //배열의 크기만큼
+    image = Math.floor(Math.random()*imgArr.length)
+    img.src=imgArr[image]
+    //로또 번호생성기 과제
+  </script>
+
+
+  <title>1203로또번호생성기</title>
+</head>
+<body>
+  <script>
+    /* 로또 번호 생성기
+       번호 6개 생성해서 배열에 저장 1~45
+    */
+    let arr = new Array();
+    for(let i = 0 ; i< 6 ; i++) {
+      //1~45 사이의 난수 생성
+      let num = Math.floor(Math.random()*45)+1;
+      //num을 검사해서 같은 값이 있으면 다시 만들기
+      안 알려줌
+      //난수를 배열에 추가
+      arr.push(num);
+    }
+    console.log( arr.sort( (a,b) => a-b ).toString() )    //낮은 값부터 string으로 출력
+  </script>
+</body>
+
+
+p.576
+
+
+
+  <title>1227p577window</title>
+</head>
+<body>
+  <div>top<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>end</div>
+  <script>
+    console.log(window.innerWidth, window.innerHeight);
+    console.log(window.outerWidth, window.outerHeight);
+    console.log(window.screenX, window.screenY);
+    console.log(window.scrollX, window.scrollY);
+
+  </script>
+
+  <title>1240p579window2</title>
+</head>
+<body>
+  <div>
+    <button type="button" id="btnOpen">새창열기</button>
+    <button type="button" id="btnClose">창닫기</button>
+    <button type="button" id="btnMove">이동</button>
+    <button type="button" id="btnRef">참조</button>
+  </div>
+  <script>
+    let popup ;
+    let width =500
+    let left = 500
+    let top = 100
+    btnOpen.onclick = function(){
+      // window.open('1140p573random2.html','random','width=400, height=200,left=300,top=200')     //random빼면 계속 창이 뜸
+      popup = window.open('1140p573random2.html','random','width='+width+',height=200,left='+ left +',top='+top)     //left top이 위치
+    }
+    btnClose.onclick = function(){
+      popup.close()     
+    }
+    btnMove.onclick = function(){
+      popup.moveBy(200,0);    //상대이동
+    }
+
+  </script>
+
+  <title>1400p582window3</title>
+</head>
+<body>
+  <div>
+    <button type="button" id="btnOpen">새창열기</button>
+    <button type="button" id="btnClose">창닫기</button>
+    <button type="button" id="btnMove">이동</button>
+    <button type="button" id="btnRef">참조</button>
+  </div>
+  <script>
+    let popup ;
+    btnOpen.onclick = function(){
+      // window.open('1140p573random2.html','random','width=400, height=200,left=300,top=200')     //random빼면 계속 창이 뜸
+      popup = window.open('1140p573random2.html','random','width=400, height=200,left=300,top=200')     
+      if(popup == null)
+        alert('팝업 차단 해제')
+    }
+    btnClose.onclick = function(){
+      popup.close()     
+    }
+    btnMove.onclick = function(){
+      popup.moveBy(200,0);    //상대이동
+    }
+    btnOpen.click();
+
+  </script>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1410p585네비게이터
+
+  </title>
+</head>
+<body>
+    console.log(navigator.userAgent)
+
+  </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1425p588geolocation.html</title>
+</head>
+<body>
+  <div id="x"></div>
+    <button type="button" id="btnGeo">현재위치</button>
+    <button type="button" id="btnLink">페이지이동</button>
+  <script>
+    let popup ;
+    btnGeo.onclick = getLocation;
+    function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude +
+  "<br>Longitude: " + position.coords.longitude;
+}
+  </script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1442p590location  </title>
+</head>
+<body>
+  <div id="x"></div>
+    <button type="button" id="btnGeo">현재위치</button>
+    <button type="button" id="btnLink">페이지이동</button>
+  <script>
+    let popup ;
+    btnLink.onclick = function(){
+      location.assign("1445p590location.html")
+    };
+  
+    btnGeo.onclick = getLocation;
+    function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude +
+  "<br>Longitude: " + position.coords.longitude;
+}
+  </script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input>
+  <button id="btnPre">이전페이지</button>
+  <button id="btnReload">새로고침</button>
+  <script>
+    btnPre.onclick = function(){
+      history.back();    //go(-1)
+    }
+
+    btnReload.onclick = function(){
+      location.reload();
+    }
+    console.log(location)
+    console.log(location.href)
+  </script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1500p591popup.html</title>
+</head>
+<body>
+  <div id="x"></div>
+  <input id="txt">
+  <button id="btnLink">새창</button>
+  
+  <script>
+    btnLink.onclick = function(){
+      popup = window.open('1500p591popup2.html',
+                          'random','width=400, height=200,left=300,top=200')
+    };
+</script>
+  
+</body>
+</html>
+
+
+https://www.w3schools.com/
+
+
+15:09
+popup.document.querySelectior("#txt").Value='test'          자식창 태그 찾아감
+popup.document.querySelectior("#txt").Value='hello'
+window.document
+document.querySelector("#x").innerHTML = 'text'
+opener.document.querySelector("#x").innerHTML = "Hello!"      부모창 태그 찾아감
+document.querySelector("#txt").innerHTML = 'hello!!!'
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1500p591popup2.html</title>
+</head>
+<body>
+  <input id="txt">
+  <button id="btnSelect">선택</button>
+  <button id="btnClose">닫기</button>
+  <button id="btnPage">부모창의페이지이동</button>
+  
+  <script>
+    btnSelect.onclick = function(){
+      //텍스트필드의 입력값을 부모창의 div#x에 출력 :opner
+      opener.document.querySelector("#x").innerHTML = txt.value
+    }
+    btnClose.onclick = function(){
+      //팝업창 닫기   :window, self
+      window.close()
+    }
+    btnPage.onclick = function(){
+      //부모창의 페이지 이동 : loacation.assign() 이용
+      opener.location.assign(txt.value)
+    }
+</script>
+  
+</body>
+</html>
+
+p.596 597
+screen.height 작업표시줄 포함 위치
+availHeight 작업표시줄 빼고 위치
+전체 너비(높이)에서 창 너비(높이)를 빼서 2로 나누면 중간에 위치
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1621p624dom.html</title>
+</head>
+<body>
+  <input id = "txt">
+  <button id = "addBtn">추가</button>
+  <ul id="itemList">
+    <li class="item">test</li>
+  </ul>
+  <script>
+    //세가지 모두 같은 내용
+/*     addBtn.onclick = function(){
+      //태그 생성
+      let li = document.createElement("li");
+      //태그에 속성을 지정
+      li.setAttribute("class","item");            //<li class="item">
+      //태그내용 변경
+      li.innerText = txt.value;                   //<li class="item">test
+      //부모태그에 연결
+      itemList.appendChild(li);
+    } */
+
+/*     addBtn.onclick = function(){
+      itemList.innerHTML += '<li class="item">'+txt.value+'</li>' //itemList.innerHTML = itemList.innerHTML + '<li class="item">'+txt.value+'</li>' +=이랑 append 같은 의미 
+    }
+ */
+
+    addBtn.onclick = function(){
+      itemList.innerHTML += `<li class="item">${txt.value}</li>`
+    }
+    </script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1621p624dom2.html</title>
+</head>
+<body>
+  <input type="text1" id = "txt1">
+  <input type="text2" id = "txt2">
+  <button id = "addBtn">추가</button>
+  <button id = "addBtn2">추가</button>
+  <select id="itemList" size="5">
+    <option value="apple">사과</option>     
+    <!-- 태그 : option value=속성(서버에 보낼 값) : apple 내용 : 사과 -->
+  </select>
+  <script>
+    //세가지 모두 같은 내용
+    addBtn.onclick = function(){
+      //태그 생성
+      itemList.innerHTML += `<option value="${txt1.value}">${txt2.value}</option>`
+    }
+    addBtn2.onclick = function(){
+      let option = document.createElement("option");
+      //태그에 속성을 지정
+      option.setAttribute("value",txt1.value);            //<li class="item">
+      //태그내용 변경
+      option.innerText = txt2.value;                   //let tnode =document.createTextNode(txt2.value) 다음줄 option.appendChild(tnode) 두줄로 대체할 수 있다.
+      //부모태그에 연결
+      itemList.appendChild(option);
+    }
+
+/*     addBtn.onclick = function(){
+      itemList.innerHTML += '<li class="item">'+txt.value+'</li>' //itemList.innerHTML = itemList.innerHTML + '<li class="item">'+txt.value+'</li>' +=이랑 append 같은 의미 
+    }
+ */
+
+    </script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1728select.html</title>
+</head>
+<body>
+  <select multiple>
+    <option >사과</option>
+    <option selected>바나나</option>
+    <option selected>키위</option>
+  </select>
+
+  선택됐으면 document.querySelectorAll("option")[0].selected 에서 true라고 뜸
+  선택 안 됐으면 document.querySelectorAll("option")[0].selected 에서 false라고 뜸
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1621p624dom2.html</title>
+</head>
+<body>
+  <input type="text1" id = "txt1">
+  <input type="text2" id = "txt2">
+  <button id = "addBtn">추가</button>
+  <button id = "addBtn2">추가</button>
+  <table id="itemList">
+    <tr>
+      <td>txt1.value</td>
+      <td>txt2.value</td>
+    </tr>
+  </select>
+  <script>
+    addBtn.onclick = function(){
+      //tr태그 생성
+
+      //td태그 생성하여 tr에 추가
+
+      //td태그 생성하여 tr에 추가
+
+      //tr을 tbody에 append
+    }  
+    
+    
+    itemList.innerHTML += `<option value="${txt1.value}">${txt2.value}</option>`
+    
+    addBtn2.onclick = function(){
+      let option = document.createElement("option");
+      //태그에 속성을 지정
+      option.setAttribute("value",txt1.value);            //<li class="item">
+      //태그내용 변경
+      option.innerText = txt2.value;                   //let tnode =document.createTextNode(txt2.value) 다음줄 option.appendChild(tnode) 두줄로 대체할 수 있다.
+      //부모태그에 연결
+      itemList.appendChild(option);
+    }
+
+/*     addBtn.onclick = function(){
+      itemList.innerHTML += '<li class="item">'+txt.value+'</li>' //itemList.innerHTML = itemList.innerHTML + '<li class="item">'+txt.value+'</li>' +=이랑 append 같은 의미 
+    }
+ */
+
+    </script>
+</body>
+</html>

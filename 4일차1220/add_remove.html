@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>add_remove</title>
+</head>
+
+<body>
+  <h3>노드 추가 삭제</h3>
+  <button class="btnAdd">+</button>
+  <div class="temp">
+    <input id="school" name="school">
+    <input id="dt" name="dt">
+    <button class="btn">-</button>
+  </div>
+  <div id="result"></div>
+  <script>
+    let btnadd = document.getElementsByClassName("btnAdd")[0]
+     //클래스 이름이 btnAdd 찾는다 (배열로 넘어옴
+    btnadd.onclick = function() {
+      
+      //body에 class="temp"를 연결함
+      result.innerHTML +=
+      `<div class="temp">
+        <input id="school" name="school">
+        <input id="dt" name="dt">
+        <button class="btn">-</button>
+      </div>`
+      //setAttribute
+
+      //appendChild = append
+      //innerText
+    }
+    let btn = document.getElementsByClassName("btn")[0]
+    btn.onclick = function(){
+      result.innerHTML -=
+      `<div class="temp">
+        <input id="school" name="school">
+        <input id="dt" name="dt">
+        <button class="btn">-</button>
+      <div>`
+    }  
+    // temp.onclick = function(event){
+    //   let input = event.target;
+    //   button.btn(event.target);
+    //   temp.removeChild(evet.target);
+    // }
+  </script>
+  
+</body>
+</html>

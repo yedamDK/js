@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1726option_move.html</title>
+</head>
+<body>
+  <select size="10" id="left">
+    <option>바나나</option>
+    <option>사과</option>
+    <option>키위</option>
+    <option>토마토</option>
+  </select>
+  <select size="10" id="right"></select>
+  <!-- 왼쪽 옵션을 클릭하면 오른쪽 셀렉에 추가 innerHTML이나 옵션태그로 append로-->
+  <script>
+    left.ondblclick = function(ev){
+      let option1 = ev.target;
+      console.log(ev.target)  //option
+      // ev.target.remove()     //본인 지우기
+      left.removeChild(ev.target)   //부모가 자식 지우기 방식만 다를뿐 같은 내용
+    }
+    //태그생성해서 right  append하기
+    let btnadd = document.getElementsByClassName("btnadd")[0]   
+    btnadd.onclick = function (){
+      // result.innerHTML +=
+      // ` <div class=" temp">
+      //    <input id="school"><input id="dt"><button class="btn">-</button>
+      //   </div>
+      // `
+      }
+    
+
+  </script>
+</body>
+</html>

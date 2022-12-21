@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1222p498이중while문.html</title>
+</head>
+<body>
+  <script>
+    let arr=[2,5,10,20,4]
+    for(let i=0 ; i<arr.length ; i++){
+      console.log(arr[i]);
+    }
+    // let i=0;          
+    // while(true){        //조건문에 true를 넣으면 무한 루프 if로 종료조건 만들기
+    //   console.log(i++)
+    //   if(i>=arr.length){
+    //     break;
+    //   }
+    // }
+
+    //for문을 while문으로 만들기
+    // let i=0;
+    // while(i<arr.length){
+    //   console.log(arr[i])
+    //   i++;
+    // }
+
+    // let i=0;
+    // let lotto = [];
+    // while(i<6){
+    //   let num = Math.round (Math.random()*44) +1
+    //   if(lotto.indexOf(num) == -1){
+    //     lotto.push(num)
+    //     i++;
+    //   }
+    // }
+    // console.log(lotto)
+
+
+    let i=0;
+    let lotto = [];
+    do{
+      let num = Math.round (Math.random()*44) +1
+      if(lotto.indexOf(num) == -1){
+        lotto.push(num)
+        i++;
+      }
+    }while(i<6)
+    console.log(lotto)
+
+    
+    // let lotto = [];
+    // for(let i=0; i<6; i++){
+    //   let num = Math.round (Math.random()*44)+1
+    //   if(lotto.indexOf(num) == -1){
+    //     lotto.push(num)
+    //   }else{
+    //     i--;   //중복하면 다시 한 번 더 돌리기 위해서 i-- ex. 2번째에서 같은 숫자가 나오면 다시 2번째 함
+    //   }
+    // }
+    // console.log(lotto)
+  </script>
+</body>
+</html>

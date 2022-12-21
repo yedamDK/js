@@ -1,0 +1,611 @@
+함수 재사용코드영역에 이름(선언/호출)
+객체 속성(데이터) + 메서드(함수)
+내장객체
+Array : 추가 삭제 조회 자르기 join
+String : 대/소문자 검색 split
+Date 날짜계산 날짜 변경
+
+  <script>
+    /*1부터 10까지의 합을 계산하는 프로그램 작성*/
+
+    //합계를 저장할 변수 선언하고 0으로 초기화
+    let sum = 0;  //let 변수 선언(변수가 생길 때 마다), 초기값 안 주면 undefiend됨
+    //10까지 반복
+    for(let i=0 ; i < 11 ; i++){
+      //합계변수에 수를 더함
+      sum += i;
+    }
+    //합계 출력
+    alert(sum);
+
+    //100까지의 합
+    sum = 0;    //변수를 초기화 했으므로 다시 써도 됨 let은 똑같은 변수를 다시 선언하지 않음.
+      for(let i=0 ; i < 101 ; i++){
+        sum += i;
+      }
+    alert(sum)
+
+    sum = 0;
+    sum_calc(10);
+    alert(sum);
+
+    sum = 0;
+    sum_calc(100);
+    alert(sum);
+
+
+    function sum_calc(num){
+      for(let i=0 ; i < num + 1 ; i++){
+          sum += i;
+        }
+        }
+
+  </script>
+
+
+<script>
+  //두 수의 합을 계산하는 함수를 선언
+  function total() {
+    let num1 = 10;
+    let num2 = 20;
+    let sum = num1 + num2;
+    alert(sum);
+  }
+  debugger
+  //함수호출해서 실행
+  total();
+  total();
+  total();
+
+  function total(num1, num2) {  //num1 num2가 매개 변수
+    let sum = num1 + num2;
+    return sum;                 //넘겨줄 값이 있으므로 return 필수
+  }
+
+  function print(param){
+    console.log('===============');
+    console.log(param);
+    console.log('===============');
+    //return                      //콘솔로 나타내니까 return 생략가능
+    
+  }
+
+  let s = total(10, 20);          // 10 20 이 인수
+  print(s)
+
+  s = total(100, 200);        // 100 200 이 인수
+  alert(s)
+
+  s = total(100, 200);        // 100 200 이 인수
+  print(s)
+ </script>
+
+
+  <script>
+    /*
+    var : 중복선언 가능
+      Global 전역변수 : 함수 밖에서 선언, 모든 함수에서 사용 가능
+      Local 지역변수 : 함수 안에서 선언, 해당 함수 안에서만 사용 가능
+
+    let :   중복선언 불가
+            전역 지역변수는 같은 의미
+            블록변수 {} 지역보다 좁은 의미
+    */
+
+    // let sum =0;
+    // addNumber()
+    // addNumber()
+    // subNumber()
+    // alert(sum)
+
+    // function addNumber(){
+    //   sum += 10;
+    // }
+
+    // function subNumber(){
+    //   sum -= 10;
+    // }
+
+
+    let num =0;
+    addNumber();
+    addNumber();
+    subNumber();
+    alert(num);
+
+    function addNumber(){
+      let num = 0;
+      num += 10;
+    }
+
+    function subNumber(){
+      num -= 10;
+    }
+
+
+/*     let sum =0;                             //script 변수
+    sum = addNumber();
+    addNumber();
+    subNumber();
+    alert(sum);
+
+    function addNumber(){
+      let sum = 0;                          //지역변수(=local) 끝나면 사라짐
+      for(let i=0 ; i<1 ; i++){             //i는 블록함수 끝나면 사라짐
+      sum += 10;
+      }   
+      console.log(sum);
+      return sum;
+    }
+
+    function subNumber(){
+      sum -= 10;
+    }
+ */</script>
+
+
+  <script>
+/*     var asum = 0;
+    let cnt = 0;
+    addNumber();
+    alert(asum);            // 10이 나옴
+
+    function addNumber(){
+      for(var i=0; i<1; i++) {
+        asum += 10;
+      }
+      console.log(i)      //i가 보이는가?
+    }
+ */
+
+
+/*  var asum = 0;
+    let cnt = 0;
+    addNumber();
+    alert(asum);            // 0이 나옴
+
+    function addNumber(){
+      var asum = 0;                               //여기서는 asum은 지역함수(function 안에 있으니까)
+      for(var i=0; i<1; i++) {                    //let은 블록함수라 {} 벗어나면 값이 사라지지만 var는 블록함수 의미X function 나가도 asum 값이 계속 있음 for에서 asum은 블록함수
+        asum += 10;
+      }
+      console.log(i)      //i가 보이는가?
+    }
+ */
+
+
+    var asum = 0;
+    let cnt = 0;
+    addNumber();
+    alert(asum);
+
+    function addNumber(){
+      var asum = 0;                               
+      for(i=0; i<1; i++) {                        //i에 var를 빼면 지역함수가 아닌 전역함수(global)가 되어버림
+        asum += 10;
+      }
+      console.log(i)      //i가 보이는가?
+    }
+</script>
+
+
+  <script>
+    /*두 수의 합을 계산하는 함수*/
+
+/*     function tw_sum(num1, num2){
+      let sum = num1 + num2;
+      return sum;
+    }
+
+    console.log(tw_sum(10,20));
+    console.log(tw_sum(100,200));
+    console.log(tw_sum(10));        //NaN not a number
+    console.log(tw_sum(10,20,30));  //뒤에 30은 무시
+ */
+
+    function tw_sum(num1, num2=0){    //매개변수 기본값 0 지정 p.532
+      let sum = num1 + num2;
+      return sum;
+    }
+
+    console.log(tw_sum(10,20));
+    console.log(tw_sum(100,200));
+    console.log(tw_sum(10));        //10 + 기본값 0
+    console.log(tw_sum(10,20,30));  
+</script>
+
+
+  <script>
+    /* 피겨 점수 계산
+      최댓값, 최소값, 합계, 평균
+    */
+    /* 매개변수 : 배열(점수)
+    리턴 : 수 합계
+        let score = [100,90,100,80,100];  //0~3 0부터 시작 잊지 말기 1부터 시작 x
+      let sum = 0;
+  
+      for(let i=0 ; i < score.length ; i++){
+      sum += score[i];
+      }
+  
+    */
+    function total(score) {
+      let s = 0;
+      for (let i = 0; i < score.length; i++) {
+        s += score[i];
+      }
+      return s;
+    }
+
+    function max(score) {
+      //최댓값 변수 선언
+      let m = score[0];
+      //점수배열 수만큼 반복
+      for (let i = 1; i < score.length; i++) {
+        //최댓값이랑 배열의 요소 값을 비교해서 요소값이 크면 최댓값 변수에 할당(저장)
+        if (score[i] > m) {
+          m = score[i];
+        }
+      }
+      //최댓값 리턴
+      return m;
+    }
+    function min(score) {
+      //최소값 변수 선언
+      let m = score[0];
+      //점수배열 수만큼 반복
+      for (let i = 1; i < score.length; i++) {
+        //최소값이랑 배열의 요소 값을 비교해서 요소값이 크면 최댓값 변수에 할당(저장)
+        if (score[i] < m) {
+          m = score[i];
+        }
+      }
+      //최소값 리턴
+      return m;
+    }
+    let tes_score = [3, 4, 1, 5];
+    let tes_total = total(tes_score);
+    let tes_max = max(tes_score);
+    let tes_min = min(tes_score);
+    let tes_avg = (total(tes_score) - max(tes_score) - min(tes_score)) / (tes_score.length - 2);
+
+    //총합
+    console.log('총점:', tes_total)
+    console.log('최대점수:', tes_max)
+    console.log('최소점수:', tes_min)
+    console.log('평균:', tes_avg)
+
+
+    //예술점수
+    let pcs_score = [2, 3, 3, 4];
+    let pcs_total = total(pcs_score);
+    let pcs_max = max(pcs_score);
+
+    let pcs_min = min(pcs_score);
+    let pcs_avg = (total(pcs_score) - max(pcs_score) - min(pcs_score)) / (pcs_score.length - 2);
+    console.log(pcs_min)
+
+    console.log('총점:', pcs_total)
+    console.log('최대점수:', pcs_max)
+    console.log('최소점수:', pcs_min)
+    console.log('평균:', pcs_avg)
+
+  </script>
+
+
+  <!-- //ul>(li*a)3 -->
+  <ul>
+    <li><a href="#" onclick="changeBg('green')">green</a></li>
+    <li><a href="#" onclick="changeBg('orange')">orange</a></li>
+    <li><a href="#" onclick="changeBg('purple')">purple</a></li>
+  </ul>
+  
+  <div id="result"> test </div>
+
+  <script>
+    function changeBg(color){
+      result.style.backgroundColor = color;
+
+    }
+  </script>
+
+
+  <script>
+    /* 피겨 점수 계산
+      최댓값, 최소값, 합계, 평균
+    */
+    /* 매개변수 : 배열(점수)
+    리턴 : 수 합계
+        let score = [100,90,100,80,100];  //0~3 0부터 시작 잊지 말기 1부터 시작 x
+      let sum = 0;
+  
+      for(let i=0 ; i < score.length ; i++){
+      sum += score[i];
+      }
+  
+    */
+
+  function Figure(score){
+    this.score = score;            
+    this.total = function() {
+      let s = 0;
+      for (let i = 0; i < score.length; i++) {
+        s += score[i];
+      }
+      this.sum = s;
+      return s;
+    }
+
+
+    this.max = function() {
+      //최댓값 변수 선언
+      let m = score[0];
+      //점수배열 수만큼 반복
+      for (let i = 1; i < score.length; i++) {
+        //최댓값이랑 배열의 요소 값을 비교해서 요소값이 크면 최댓값 변수에 할당(저장)
+        if (score[i] > m) {
+          m = score[i];
+        }
+      }
+      //최댓값 리턴
+      this.maxNum = m;
+      return m;
+    }
+    this.min = function() {
+      //최소값 변수 선언
+      let m = score[0];
+      //점수배열 수만큼 반복
+      for (let i = 1; i < score.length; i++) {
+        //최소값이랑 배열의 요소 값을 비교해서 요소값이 크면 최댓값 변수에 할당(저장)
+        if (score[i] < m) {
+          m = score[i];
+        }
+      }
+      //최소값 리턴
+      this.minNum = m;
+      return m;
+    }
+  }
+    let tes_score = [3, 4, 1, 5];
+    let figure = new Figure(tes_score);
+    figure.total();
+    figure.max();
+    figure.min();
+    let tes_avg = (figure.sum - figure.maxNum - figure.minNum) / (tes_score.length - 2);
+
+    //총합
+    console.log('총점:', figure.sum)
+    console.log('최대점수:', figure.maxNum)
+    console.log('최소점수:', figure.minNum)
+    console.log('평균:', tes_avg)
+
+/* 
+    //예술점수
+    let pcs_score = [2, 3, 3, 4];
+    let pcs_total = total(pcs_score);
+    let pcs_max = max(pcs_score);
+
+    let pcs_min = min(pcs_score);
+    let pcs_avg = (total(pcs_score) - max(pcs_score) - min(pcs_score)) / (pcs_score.length - 2);
+    console.log(pcs_min)
+
+    console.log('총점:', pcs_total)
+    console.log('최대점수:', pcs_max)
+    console.log('최소점수:', pcs_min)
+    console.log('평균:', pcs_avg)
+*/
+   </script>
+
+
+p.554 객체 알아보기
+크롬 콘솔에서 
+window.open('http://www.naver.com')
+na = window.open('http://www.naver.com','naver', 'width=500')
+na = close()
+today = new Date()
+today.getHours()
+today.getUTCHours()
+
+객체 = 속성+매서드
+
+mdn 자바스크립트 가서
+array string date json math 공부하기
+
+score = [4,5]
+score.push(100)
+score.pop()
+score.unshift(100)
+score.shift()
+score.join()
+let str = score.join()
+str
+arr = str.split(",")
+arr[0]
+arr[1]
+
+
+  <script>
+    let score = [4,5];     //[]는 배열
+    //배열 요소 추가
+    score.push(100)
+    //배열 복사
+    let score_copy = score;  //얕은 복사(위치만)
+    score_copy[0] = 5;
+    
+    console.log(score[0], score_copy[0]);
+
+    //깊은복사
+    let score_deep = [... score]
+    score_deep[0]=20;
+    console.log(score[0], score_deep[0])
+    //삭제
+
+    //중간에 추가
+
+    //중간에 삭제
+
+    //섞고
+
+    //정렬
+
+
+  </script>
+
+
+  <script>
+    // /* 배열과 반복문 */
+    // let score = [100,90,100,80,100];  //0~3 0부터 시작 잊지 말기 1부터 시작 x
+    // let sum = 0;
+
+    // for(let i=0 ; i < score.length ; i++){
+    // sum += score[i];
+    // }
+    // alert(sum)
+
+
+
+     let score = [100,90,100,80,100];  
+    let total = array_sum(score);
+    alert(total)
+    function array_sum(score){                  //매개변수도 지역변수 따라서 밖에 글로벌 함수 score랑 다름 밑에처럼 다른 이름 줘도 됨(다르게 주는게 좋음)
+      let sum = 0;                              //array_sum(score) 와 score.length 의 score는 똑같이 수정해줘야 나중에 길어졌을 때 오류가 발생해도 찾기 쉬움. 
+      for(let i=0 ; i < score.length ; i++){    //현재는 array_sum(x) score.length라 해도 작동 됨
+      sum += score[i];
+      }
+      return sum;
+    }  
+
+
+/*     let ttl = array_sum([100,90,100,80,100]);
+    alert(ttl)
+    alert(array_sum([100,90,100,80,100]))
+    
+    
+    function array_sum(x){
+      let sum = 0;
+      for(let i=0 ; i < x.length ; i++){
+      sum += x[i];
+      }
+      return sum;
+    }  
+ */  </script>
+
+
+
+let name = 'choi'
+name.indexOf('h')
+1
+name.indexOf('a')
+-1
+name = 'hello'
+'hello'
+name.indexOf('l')
+2
+name.lastIndexOf('l')
+3
+name.startsWith('c')
+false
+name.startsWith('h')
+true
+name.endsWith('o')
+true
+name.endsWith('e')
+false
+name.toUpperCase()
+'HELLO'
+name
+'hello'
+name = name.toUpperCase()
+'HELLO'
+name.split()
+['HELLO']
+name.split("")
+(5) ['H', 'E', 'L', 'L', 'O']
+tel = '010-123-4567'
+'010-123-4567'
+tel.split("-")[0]
+'010'
+addr = "js/1day/function.html"
+'js/1day/function.html'
+addr.split("/")[2]
+'function.html'
+ddrs = addr.split("/")
+(3) ['js', '1day', 'function.html']
+addrs.pop()
+'function.html'
+addrs
+(2) ['js', '1day']
+addrs = addr.split("/")
+(3) ['js', '1day', 'function.html']
+addrs[2]
+'function.html'
+
+  <input type="text">
+  <input type="text">
+  <input type="text">
+  
+  <script>
+    let tel = '011-123-4567';
+    telArr = tel.split("-");
+
+    // document.querySelectorAll("input")[0].value = telArr[0]            같은 방식
+    // document.querySelectorAll("input")[1].value = telArr[1]
+    // document.querySelectorAll("input")[2].value = telArr[2]
+
+    for(let i=0 ; i < telArr.length ; i++){
+      document.querySelectorAll("input")[i].value = telArr[i]
+    }
+
+  </script>
+
+
+  <script>
+    /* 날짜 객체
+    객체 = 데이터(변수) + 매서드(함수)
+    */
+    let today = new Date();       //객체 생성
+    console.log(today.getTime());
+    console.log(today.getDate())
+    console.log(today.getDay())
+    console.log(today.getMonth())
+    console.log(today.getFullYear())
+    console.log(today.getHours())
+
+    let to7 = new Date(today.getTime() + 7*24*60*60*1000);
+    console.log('7일뒤는:',to7)
+    
+    let to100 = new Date(2022, 11, 16+100)
+    console.log('100일뒤는:',to100)
+
+    let to20month = new Date(2022, 11+20, 16)
+    console.log('20달뒤는:',to20month)
+
+    let to100min = new Date(2022, 11, 16, 15, 40+100)
+    console.log('100분뒤는:',to100min)
+
+    
+  </script>
+
+
+  날짜 <input value="2002"> / <input value="12"> / <input value="16">/
+      <input value="100">
+      <button id="btn">계산</button>
+
+  <script>
+    btn.onclick = function(){
+      let year = parseInt(document.querySelectorAll("input")[0].value);
+      let month = parseInt(document.querySelectorAll("input")[1].value);
+      let day = parseInt(document.querySelectorAll("input")[2].value);
+      let add = parseInt(document.querySelectorAll("input")[3].value);
+
+      //날짜 객체 생성 +100일
+      //월은 하나 빼서 계산 12월이면 11넣기
+      //계산 된 날자 출력
+      let date = new Date(year, month-1,day+add);
+      alert(date.getFullYear() +"년"+ (date.getMonth()+parseInt(1))+"월"+ date.getDate()+"일")
+    }
+    
+  </script>
+
+
+

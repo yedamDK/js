@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1525p535function_arrow.html</title>
+</head>
+<body>
+  <script>
+    //다 같은 내용 다른 방식 입력
+
+    // function hi(){
+    //   let greet = 'hello';
+    //   return greet;
+    // }
+
+
+    //div.onclick = function(){}    //익명함수
+    // let hi =function(){
+    //   let greet = 'hello';
+    //   return greet;
+    // }
+
+    // let hi =function(){                            //return이 있으면 {}생략가능
+    //   return 'hello'
+    // }
+
+
+
+    // let hi = () => 'hello';
+    
+    // console.log( hi());
+
+
+    // let hi =function(name){
+    //   return name + 'hello'
+    // }
+
+    let hi = name => name + 'hello';                //하나만 있을 때는 ()생략가능
+    console.log( hi('choi'));
+
+    let hi2 = function(name){
+      alert(name + 'hello')
+    }
+
+    function sum(a,b) {
+      return a+b;
+    }
+    console.log( sum(10,20) ) ;
+
+    let sum2 = (a,b) => a+b;
+    console.log( sum2(10,20) ) ;
+
+  </script>
+  
+</body>
+</html>
