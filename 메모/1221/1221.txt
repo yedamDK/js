@@ -1,0 +1,169 @@
+<html> 하나를 태그라고 함
+<html></html> 엘리먼트라고 함
+div는 태그라고 함
+<div></div> 엘리먼트라고 함
+DOM 트리에서는 각 태그를 노드라고 함
+
+자바스크립트 파워북 P.260
+
+0925 selector 열고 크롬 가서
+document.getElementById("helpIntro")
+<div id=​"helpIntro">​…​</div>​
+document.getElementById("helpIntro").style.color='red'
+'red'
+document.querySelector("#helpIntro")
+<div id=​"helpIntro" style=​"color:​ red;​">​…​</div>​
+document.querySelector("#helpIntro").remove()
+f5로 초기화
+document.getElementsByClassName("intro")[0].style.color='red'
+f5로 초기화
+document.getElementById("my-Address").style.color='red'
+document.querySelector("#my-Address").style.color='blue'
+Listfriends.style.color='blue'
+my-Address.style.color='red'	    //중간에 -가 있기 때문에 getElements 나 querySelector 써야됨
+
+document.getElementsByName("rr")[2].checked = true	//id가 rr인 것의 두번째를 체크하겠다.
+
+document.querySelector('[name="rr"]')     //속성 찾을때는 [ ]대괄호 (id는# class는 .) selctor는 그 속성이 있는 첫번째만 찾음
+<input name=​"rr" type=​"radio" id=​"rr1" checked=​"checked" style=​"outline:​2px solid transparent">​
+document.querySelectorAll('[name="rr"]')   //해당 속성 전체 찾을 때
+NodeList(3) [input#rr1, input#rr2, input#rr3]
+document.querySelectorAll('[name="rr"]')[1].checked = true
+
+document.getElementsByTagName("li")    //태그로 찾기
+HTMLCollection(4) [li, li, li, li]
+document.getElementsByTagName("p")
+HTMLCollection(6) [p, p#my-Address, p, p, p, p, my-Address: p#my-Address]
+document.querySelectorAll("p")    //바로 위와 같은 찾기
+NodeList(6) [p, p#my-Address, p, p, p, p]
+
+document.getElementsByTagName("tr")
+HTMLCollection(5) [tr, tr, tr, tr, tr]
+document.getElementsByTagName("tr")[1]
+<tr>​…​</tr>​
+let tr = document.getElementsByTagName("tr")[1]
+undefined
+tr.getElementsByTagName("td")[0]	//document만 넣어야 찾을 수 있는게 아님. document는 문서전체에서 찾기 tr로 하면 tr자손에서 찾기
+<td style=​"background-color:​#f1f1f1;​">​Mickey​</td>​
+tr.querySelectorAll("td")
+NodeList(2) [td, td]
+
+
+  <title>1017p.264prop_attr.html</title>
+</head>
+<body>
+  <h3>html attribute와 dom property를 비교</h3>
+  <ul>
+    <li>바나나</li>
+    <li>사과</li>
+    <li>키위</li>
+  </ul>
+  <script>
+    
+  </script>
+</body>
+크롬 콘솔
+document.getElementsByTagName("ul")[0]	//document.querySelector("ul") 같다
+let ul = document.getElementsByTagName("ul")[0]
+ul.type="square"
+ul.setAttribute('type','circle')
+ul.setAttribute('price','500')
+ul.getAttribute('price')
+초기화f5
+let ul = document.getElementsByTagName("ul")[0]
+ul.price = 500 	//html에 안 뜨지만 존재는 함
+ul.price
+500
+ul.price = {price:500, brand:'sm'}
+{price: 500, brand: 'sm'}
+
+  <title>1032innerText.html</title>
+</head>
+<body>
+  <h3>태그내용(바디)innerText, innerHTML 비교</h3>
+  <p id="p1"><strong>Ajax</strong> 프로그래밍,<br/>기초</p> 
+	<input type="button" value="보기"id="btn">
+  <script>
+    btn.onclick = function(){
+      // console.log(p1.innerText)
+      // console.log(p1.innerHTML)
+
+      // p1.innerText = "<strong>Ajax</strong> 프로그래밍,<br>기초"    //p1 텍스트를 바꿈 태그가 문자로 그대로 뜸
+      p1.innerHTML = "<strong>Ajax</strong> 프로그래밍,<br>기초"        //위에를 토글하고 토글 지우면 태그가 보이지 않고 태그설정됨
+    }
+  </script>
+
+
+  <title>1046class.html</title>
+  <style>
+  .hide {
+    display: none;
+  }
+  </style>
+</head>
+<body>
+  <h3>class 속성을 제어</h3>
+  <button id="btn">안보이게</button>
+  <div>내용</div>
+  <script>
+    btn.onclick = function(){
+      let div = document.getElementsByTagName("div")[0]
+      // div.setAttribute("class","hide")
+      div.className="hide"
+    }
+  </script>
+
+
+  <title>1046class.html</title>
+  <style>
+  .hide {
+    display: none;
+  }
+  </style>
+</head>
+<body>
+  <h3>class 속성을 제어</h3>
+  <button id="btn">안보이게</button>
+  <div>내용</div>
+  <script>
+    btn.onclick = function(){
+ let div = document.getElementsByTagName("div")[0]
+      //현재 클래스 속성을 조회
+      let classValue = div.getAttribute("class");           
+      //클래스 속성이 'hide'라면 클래스 삭제 
+      if(classValue == 'hide'){
+        classValue.removeAtrribute('class')
+      }else{
+        //아니면 hide추가
+        div.setAttribute("class","hide")
+      }
+    }
+  </script>
+
+
+  <title>1123classlist.html</title>
+  <style>
+  .panel {
+    color : blue;
+    font-size: 2em;
+  }
+  .hide {
+    display: none;
+  }
+  </style>
+</head>
+<body>
+  <h3>class 속성을 제어</h3>
+  <button id="btn">안보이게</button>
+  <div class="panel">내용</div>
+  <script>
+    btn.onclick = function(){
+      
+    }
+  </script>
+크롬가서
+document.querySelector("div").classList
+document.querySelector("div").classList.add("hide")
+document.querySelector("div").classList.remove("hide")
+document.querySelector("div").classList.toggle("hide")
+document.querySelector("div").classList.toggle("hide")

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1531event.html</title>
+</head>
+<body>
+  <h3>addEventListener() 연습</h3>
+  <button id="btn">마우스 클릭</button>
+  <script>
+    //타겟                //타입      //수신기(=핸들러)
+    btn.addEventListener("mouseover",function(){
+    alert("mouseover")
+    });
+    btn.addEventListener("click",function(){
+    alert("click")
+    });
+    window.addEventListener("click",function(){
+    alert("click2")
+    });
+    window.addEventListener("keypress",()=> alert("keypress"));                                                 
+                                                            //옵션(객체)
+    window.addEventListener("resize",()=> alert("resize") , {once:true});   //한번만 실행
+
+    window.addEventListener("load",()=> alert("load")); //페이지 뜨면
+    
+  </script>
+</body>
+</html>

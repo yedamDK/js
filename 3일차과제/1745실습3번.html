@@ -13,10 +13,11 @@ btnEvent();
 function btnEvent(){
 btn.addEventListener("click", function(){ 
   //코드 작성 value
-  for(i=0 ; i<textarea.length ; i++){
-    input[i].value=result.nth-child(i);
-  }
-  span.innerText?
+let sResult= result.value.split(",");
+document.getElementsByName("no")[0].value = result.value.split(",")[0];
+document.querySelector('input[name="name"]').value = sResult[1];
+document.querySelectorAll('input[name="id"]')[0].value = sResult[2];
+document.getElementsByTagName('input')[3].value = sResult[3];
 });
 }
 </script>

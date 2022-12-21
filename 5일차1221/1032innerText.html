@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1032innerText.html</title>
+</head>
+<body>
+  <h3>태그내용(바디)innerText, innerHTML 비교</h3>
+  <p id="p1"><strong>Ajax</strong> 프로그래밍,<br/>기초</p> 
+	<input type="button" value="보기"id="btn">
+  <script>
+    btn.onclick = function(){
+      // console.log(p1.innerText)
+      // console.log(p1.innerHTML)
+
+      // p1.innerText = "<strong>Ajax</strong> 프로그래밍,<br>기초"    //p1 텍스트를 바꿈 태그가 문자로 그대로 뜸
+      p1.innerHTML = "<strong>Ajax</strong> 프로그래밍,<br>기초"        //위에를 토글하고 토글 지우면 태그가 보이지 않고 태그설정됨
+    }
+  </script>
+</body>
+</html>
