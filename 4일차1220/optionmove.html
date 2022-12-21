@@ -22,7 +22,7 @@
       //태그생성해서 right append
       document.getElementById("right").appendChild(ev.target);
     }
-    right.ondblclick = function(ev){
+    right.ondblclick = function(ev){      //function 안에 있으므로 ev같아도 됨. 마음대로 써도 됨.
       let option = ev.target;
       console.log(option.innerText)    //option
       right.removeChild(ev.target)      //=ev.target.remove()
