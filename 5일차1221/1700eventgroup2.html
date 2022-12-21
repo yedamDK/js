@@ -28,13 +28,16 @@
       })
       //이벤트위임(그룹이벤트) : 부모태그에 이벤트를 지정
       basket.addEventListener("click", function(ev){
-        let nod = ev.target;  //실제로 이벤트가 발생한 대상(태그=타켓)
-        if( node.classList.contaions("fruit") ) {   //div이면 본인을 삭제
+        console.dir(ev.target)
+        let node = ev.target;  //실제로 이벤트가 발생한 대상(태그=타켓)
+        if( node.classList.contains("fruit") ) {   //div이면 본인을 삭제
           node.remove();
-        }else if(node.nodeName == "span"){    //span 태그이면 부모div를 삭제
+        } else if(node.nodeName == "SPAN") {    //span 태그이면 부모div를 삭제
           node.parentNode.remove();
         }
       })
   </script>
 </body>
 </html>
+
+
