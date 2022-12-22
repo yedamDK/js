@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1241movie2.html</title>
+</head>
+<body>
+  <h3>영화정보</h3>
+  <div id="result"></div>
+  <script>
+    let xhr = new XMLHttpRequest();
+    xhr.onload = callback;
+    let url = 'https://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt=20221221'
+    xhr.open('get',url);
+    //4. 요청전달
+    xhr.send();
+    function callback(){
+      let movies =JSON.parse(xhr.response)
+      let mvlist= movies.boxOfficeResult.dailyBoxOfficeList
+      for(let i=0 ; i<mvlist.length ; i++){
+        result.innerHTML += `<div><span class="no">${mvlist[i].rnum}</span>
+        <span class="name">${mvlist[i].movieNm}</span>
+        <span class="cd">${mvlist[i].movieCd}</span></div>`
+      }
+    }
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1241movie2.html</title>
+</head>
+<body>
+  <h3>영화정보</h3>
+  <div id="result"></div>
+  <script src="1227movie.js"></script>
+  <script>
+    let mvlist= movies.boxOfficeResult.dailyBoxOfficeList
+    for(let i=0 ; i<mvlist.length ; i++){
+        result.innerHTML += `<div><span class="no">${mvlist[i].rnum}</span>
+        <span class="name">${mvlist[i].movieNm}</span>
+        <span class="cd">${mvlist[i].movieCd}</span></div>`
+      }
+    //''문자로 만들었으면 innerHTML += '문자열'
+    //  node로 만들었으면 append(node)
+      // <div><span class="no">1</span>
+    //       <span class="name">아바타</span>
+    //       <span class="cd">20225061</span>
+    //     </div>
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1512p238JSON.html</title>
+</head>
+<body>
+  <h3>서버에서 비동기로 데이터 가져오기</h3>
+  <script>
+    //1. xhr객체 생성
+     let xhr = new XMLHttpRequest();
+    //2. 콜백함수
+    xhr.onload = callback;
+    
+    //3. 요청연결
+    let url = 'https://jsonplaceholder.typicode.com/posts/1'
+    xhr.open('get',url)
+    //4. 요청전달
+    xhr.send();
+
+    function callback(){
+      let obj = JSON.parse(xhr.response)
+      console.log(obj.title)
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,254 @@
+DOM tree
+        API함수
+태그선택 querySelect getElement
+
+내용 innerText
+생성 createElemnet, $() => innerHTML, CloneNode -> append(클론이 제일 쉽다)
+이벤트
+
+  <title>0937traverse.html</title>
+</head>
+<body>
+  <h3>노드탐색</h3>
+  <input type="button" value="확인" onclick="node_access()"/>
+  <div id="a">a</div>
+  <div id="b">b</div>
+  <div id="c">c</div>
+
+children은 child랑 달리 element노드만 가져옴 child는 텍스트노드 포함해서 
+document.body.children
+a.parentNode
+document.querySelector("#a").previousElementSibling
+<input type=​"button" value=​"확인" onclick=​"node_access()​">​
+document.querySelector("#a").nextElementSibling
+<div id=​"b">​b​</div>​
+
+
+  <h3>노드탐색</h3>
+  <div><span>첫번째</span><input type="button" value="확인" onclick="node_access()"/></div>
+  <div><span>두번째</span><input type="button" value="확인" onclick="node_access()"/></div>
+  <div><span>세번째</span><input type="button" value="확인" onclick="node_access()"/></div>
+  <div id="a">a</div>
+  <div id="b">b</div>
+  <div id="c">c</div>
+
+document.querySelector("input").parentElement.remove()		parentNode해도 됨
+document.querySelector("#a").nextElementSibling.innerText	id="a"동생  내용 나오게
+document.querySelector("input").parentElement.nextElementSibling.firstElementChild.innerText
+//첫번째 버튼의 부모(div첫번째) 가서 동생(div두번째)가서 첫번째자식의 내용
+document.querySelector("input").parentElement.nextElementSibling.lastElementChild.value
+'확인'
+
+
+  <title>1008eventgroup3.html</title>
+  <style>
+    div { margin: 5px; padding: 10px; border: 1px solid red; }
+  </style>
+</head>
+<body>
+  <div id="apple" class="ele">사과</div>
+  <div id="banana" class="ele">바나나</div>
+  <div id="kiwi" class="ele">키위</div>
+  <div id="basket"></div>
+  <div id="template" style="display:none">
+    <div class="fruit" title="사과">
+      <span>사과</span><button>삭제</button></div>
+  </div>
+  <script>
+    document.body.addEventListener("click",function(ev){
+        if( ! ev.target.classList.contains("ele") ) {
+          return;
+        }
+        let content =  event.target.innerText
+        let div = `<div class="fruit" title="${content}"><span>${content}</span><button>삭제</button></div>`;
+        basket.innerHTML += div
+      })
+      //이벤트위임(그룹이벤트) : 부모태그에 이벤트를 지정
+      basket.addEventListener("click", function(ev){
+        console.dir(ev.target)
+        let node = ev.target;  //실제로 이벤트가 발생한 대상(태그=타켓)
+        if( node.classList.contains("fruit") ) {   //div이면 본인을 삭제
+          node.remove();
+        } else if(node.nodeName == "BUTTON") {    
+          node.parentNode.remove();
+        }
+      })
+  </script>
+
+
+  <title>1008eventgroup4.html</title>
+  <style>
+    div { margin: 5px; padding: 10px; border: 1px solid red; }
+  </style>
+</head>
+<body>
+  <div id="apple" class="ele">사과</div>
+  <div id="banana" class="ele">바나나</div>
+  <div id="kiwi" class="ele">키위</div>
+  <div id="basket"></div>
+  <div id="template" style="display:none">
+    <div class="fruit" title="사과">
+      <span>사과</span><button>삭제</button></div>
+  </div>
+  <script>
+    document.body.addEventListener("click",function(ev){
+        if( ! ev.target.classList.contains("ele") ) {
+          return;
+        }
+        let content =  event.target.innerText
+        let div = `<div class="fruit" title="${content}"><span>${content}<button>삭제</button></span></div>`;
+        basket.innerHTML += div
+      })
+      //이벤트위임(그룹이벤트) : 부모태그에 이벤트를 지정
+      basket.addEventListener("click", function(ev){
+        console.dir(ev.target)
+        let node = ev.target;  //실제로 이벤트가 발생한 대상(태그=타켓)
+        if( node.classList.contains("fruit") ) {   //div이면 본인을 삭제
+          node.remove();
+        } else if(node.nodeName == "BUTTON") {    
+          node.parentNode.remove();           //span만 제거
+        }
+      })
+  </script>
+
+
+  <title>1008eventgroup5.html</title>
+  <style>
+    div { margin: 5px; padding: 10px; border: 1px solid red; }
+  </style>
+</head>
+<body>
+  <div id="apple" class="ele">사과</div>
+  <div id="banana" class="ele">바나나</div>
+  <div id="kiwi" class="ele">키위</div>
+  <div id="basket"></div>
+  <div id="template" style="display:none">
+    <div class="fruit" title="사과">
+      <span>사과</span><button>삭제</button></div>
+  </div>
+  <script>
+    document.body.addEventListener("click",function(ev){
+        if( ! ev.target.classList.contains("ele") ) {
+          return;
+        }
+        let content =  event.target.innerText
+        let div = `<div class="fruit" title="${content}"><span>${content}<button>삭제</button></span></div>`;
+        basket.innerHTML += div
+      })
+      //이벤트위임(그룹이벤트) : 부모태그에 이벤트를 지정
+      basket.addEventListener("click", function(ev){
+        console.dir(ev.target)
+        let node = ev.target;  //실제로 이벤트가 발생한 대상(태그=타켓)
+        if( node.classList.contains("fruit") ) {   //div이면 본인을 삭제
+          node.remove();
+        } else if(node.nodeName == "BUTTON") {    
+          node.closest("div").remove();     //조상들 중에서 가장 가까운 div 제거  closest() 대신에 parentNode.parentNode 해도 됨
+        }
+      })
+  </script>
+
+
+  <title>1016traverse2.html</title>
+</head>
+<body>
+  <table>
+    <tr>
+    <td>1</td>
+    <td>2</td>
+    <td><button>조회</button></td>
+  </tr>
+    <tr>
+    <td>3</td>
+    <td>4</td>
+    <td><button>조회</button></td>
+  </tr>
+    <tr>
+    <td>5</td>
+    <td>6</td>
+    <td><button>조회</button></td>
+  </tr>
+  </table>
+  <script>
+    document.querySelector("table").addEventListener("click",function(ev){
+      //console.log(ev.target.innerHTML)    //if로 버튼을 설정하지 않으면 클릭하는 모든 것에 대해서 이벤트 발생
+      let node = ev.target
+      if(node.nodeName == "BUTTON"){
+        console.log(node.parentElement.previousElementSibling.previousElementSibling.innerText);  //previous는 형 next는 동생
+      }
+      if(ev.target.nodeName== "BUTTON"){
+        console.log(ev.target.closest("tr").children[1].innerText);   //closest만 함수 나머지(parent previous nex children 는 속성)
+      }
+    })
+  </script>
+
+
+1046 새 교재 6장 232 교안 ajax
+
+크롬 웹스토어에 Boomerang 다운해서 quick request 눌러서 get에 https://jsonplaceholder.typicode.com/posts send하기
+Body에 복사 된 내용을 1130json.js 파일 만들어서 let posts = 뒤에 붙여넣기
+  <title>1130json.html</title>
+</head>
+<body>
+  <div id="result"></div>
+  <script src="1130json.js"></script>
+  <script>
+    for(let i=0 ; i<posts.length ; i++){    //js파일에 let posts를 했으므로
+      result.innerHTML += posts[i].title + "<br>"
+    }
+  </script>
+
+
+구글에 영화정보 api 쳐서 OPEN API - 일별 박스오피스 - 영화진흥위원회 오픈API 클릭 후
+맨밑에 json 눌러서 주소창 맨 뒤에 날짜를 어제 수정 
+
+
+15:00 p238 교안 17쪽
+  <title>1442p233xhr.html</title>
+</head>
+<body>
+  <h3>서버에서 비동기로 데이터 가져오기</h3>
+  <script>
+    //url. 응답처리
+    //1. xhr객체 생성
+     let xhr = new XMLHttpRequest();
+    //2. 콜백함수
+    xhr.onload = function(){
+      console.log(typeof xhr.response)		//str로 나옴 서버에서 받아오는 데이터 형식은 str
+    }
+    //3. 요청연결
+    let url = 'https://jsonplaceholder.typicode.com/posts/1'
+    xhr.open('get',url)
+    //4. 요청전달
+    xhr.send();
+  </script>
+</body>
+</html>
+크롬 가서
+let obj = {name:'park', age:20}	//객체였는데
+undefined
+typeof obj
+'object'
+obj.name
+'park'
+let str = JSON.stringify(obj)
+undefined
+str
+'{"name":"park","age":20}'		//string됨
+typeof str
+'string'
+let pserson = JSON.parse(str)
+typeof pserson
+'object'
+
+15:45
+https://www.w3schools.com/jsref/coll_table_rows.asp
+https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_table_rows_index
+function myFunction() {
+  //alert(document.getElementById("myTable").rows[0].innerHTML);
+  let tb = document.getElementById("myTable");
+  let row = tb.insertRow();
+  row.insertCell().innerHTML = 'a'
+  row.insertCell().innerHTML = 'b'
+run 클릭 후 try it
+
+

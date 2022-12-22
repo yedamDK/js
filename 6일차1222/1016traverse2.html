@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1016traverse2.html</title>
+</head>
+<body>
+  <table>
+    <tr>
+    <td>1</td>
+    <td>2</td>
+    <td><button>조회</button></td>
+  </tr>
+    <tr>
+    <td>3</td>
+    <td>4</td>
+    <td><button>조회</button></td>
+  </tr>
+    <tr>
+    <td>5</td>
+    <td>6</td>
+    <td><button>조회</button></td>
+  </tr>
+  </table>
+  <script>
+    document.querySelector("table").addEventListener("click",function(ev){
+      //console.log(ev.target.innerHTML)    //if로 버튼을 설정하지 않으면 클릭하는 모든 것에 대해서 이벤트 발생
+      let node = ev.target
+      if(node.nodeName == "BUTTON"){
+        console.log(node.parentElement.previousElementSibling.previousElementSibling.innerText);  //previous는 형 next는 동생
+      }
+      if(ev.target.nodeName== "BUTTON"){
+        console.log(ev.target.closest("tr").children[1].innerText);   //closest만 함수 나머지(parent previous nex children 는 속성)
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1227movie.html</title>
+</head>
+<body>
+  <h3>영화정보</h3>
+  <script src="1227movie.js"></script>
+  <script>
+    let mvlist= movies.boxOfficeResult.dailyBoxOfficeList
+    for(let i=0 ; i<mvlist.length ; i++){
+      console.log(mvlist[i].movieNm)
+    }
+
+  </script>
+</body>
+</html>

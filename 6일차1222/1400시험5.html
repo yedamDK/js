@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1400시험5.html</title>
+</head>
+<body>
+  <input type="text" id="num1"> +
+  <input type="text" id="num2"> =
+  <input type="text" id="num3">
+  <button id="btn" >결과확인</button>
+  <script>
+    btn.addEventListener('click',function(ev){
+      let result = num1.value*1 + parseInt(num2.value)
+      if(result == num3.value){
+        alert('맞다')
+      }else{
+        alert('틀리다')
+      }
+
+    })
+  </script>
+
+</body>
+</html>

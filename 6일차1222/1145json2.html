@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1145json2</title>
+</head>
+<body>
+  <h3>JSON : JavaScript Object Natation {,[로 시작</h3>
+    <script>
+      let data ={ name:'park', age:20, hobby:['독서','게임']}
+      //첫번째 취미만 출력
+      console.log(data.hobby[0])   //{}로 만나면 속성이니 .으로 []배열을 만나면 [0]인덱스로
+
+      let datas = [
+        { name:'park',
+          age:20,
+          hobby:['독서','게임']
+        }, 
+        { name:'kim',
+          age:30, 
+          hobby:['잠','먹기']}
+      ]
+      console.log(datas[0].hobby[0])
+      console.log(datas[1].name)
+      console.log(datas[1].age)
+
+      let info = {
+        result : true,
+        count : 4,
+        data : [
+         { name:'park',
+           age:20,
+           hobby:['독서','게임']
+          }, 
+         { name:'kim',
+           age:30, 
+           hobby:['잠','먹기']}
+        ]
+      }
+      console.log(info.data[0].hobby[0])  //첫번째 객체의 첫번째 hobby
+
+      let chartdata = [
+        ['Mushrooms', 3],
+        ['Onions', 1],
+      ]
+      for( let i=0 ; i<chartdata.length ; i++)
+        console.log(chartdata[i][1])
+    </script>
+</body>
+</html>

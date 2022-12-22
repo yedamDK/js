@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1241movie2.html</title>
+</head>
+<body>
+  <h3>영화정보</h3>
+  <input id="dt"><button id="btnSelect">조회</button>
+  <div id="result"></div>
+  <script>
+    btnSelect.addEventListener('click',function(){
+      if(dt.value ==""){
+        alert("비어있음")
+        return;
+      }else{
+        let xhr = new XMLHttpRequest();
+        xhr.onload = function(){callback(xhr);}
+        let url = 'https://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt=' + dt.value
+        xhr.open('get',url);
+        xhr.send();
+      }
+    })
+
+    function callback(xhr){
+      let movies =JSON.parse(xhr.response)
+      let mvlist= movies.boxOfficeResult.dailyBoxOfficeList
+      result.innerHTML = ""
+      for(let i=0 ; i<mvlist.length ; i++){
+        result.innerHTML += `<div><span class="no">${mvlist[i].rnum}</span>
+        <span class="name">${mvlist[i].movieNm}</span>
+        <span class="cd">${mvlist[i].movieCd}</span></div>`
+      }
+    }
+    
+  </script>
+</body>
+</html>
